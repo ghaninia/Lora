@@ -1,0 +1,69 @@
+.datepicker-jalali {
+    border-radius: 3px;
+     border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.05);
+    padding: 10px;
+    background: #fff ;
+}
+
+.datepicker-jalali .datepicker-navigator {
+    padding: 0px 10px 10px 10px;
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.datepicker-jalali .datepicker-navigator *{
+    cursor: pointer;
+}
+.datepicker-jalali .datepicker-navigator .nav-right , .datepicker-jalali .datepicker-navigator .nav-left{
+    position: absolute;
+    top: 0;
+}
+.datepicker-jalali .datepicker-navigator .nav-right {
+    right: 0;
+}
+
+.datepicker-jalali .datepicker-navigator .nav-left {
+    left: 0;
+}
+
+.datepicker-jalali .datepicker-navigator .nav-content {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.datepicker-jalali * table .select {
+    background: #007bff !important;
+    color : #fff
+}
+.datepicker-jalali .datepicker-days,.datepicker-jalali .datepicker-month,.datepicker-jalali .datepicker-years{
+    text-align: center;
+}
+.datepicker-jalali .datepicker-days table,.datepicker-jalali .datepicker-month table,.datepicker-jalali .datepicker-years table{
+    width: 100%;
+}
+.datepicker-jalali .datepicker-month table td,.datepicker-jalali .datepicker-years table td{
+    width: 33%;
+}
+.datepicker-jalali .datepicker-days .day , .datepicker-jalali .datepicker-month .month ,.datepicker-jalali .datepicker-years .year{
+    cursor: pointer;
+    display: inline-block;
+    background: #eeeeee3d ;
+    border-radius: 3px;
+    min-width: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    transition: all ease .5s;
+    font-weight:bold;
+}
+.datepicker-jalali .datepicker-days .day:hover , .datepicker-jalali .datepicker-month .month:hover ,.datepicker-jalali .datepicker-years .year:hover{
+    background: #d7d7d7;
+}
+.datepicker-jalali .datepicker-days .day.today , .datepicker-jalali .datepicker-month .month.this ,.datepicker-jalali .datepicker-years .year.this{
+    background: #6cca0f;
+    color : #fff ;
+}
+.datepicker-jalali .datepicker-days .day.today:hover ,.datepicker-jalali .datepicker-month .month.this:hover ,.datepicker-jalali .datepicker-years .year.this{
+    background: #007bff ;
+}
