@@ -16,6 +16,5 @@
  9. فایل ترجمه شما میتوانید این نسخه رو به زبان های دیگه ترجمه کنید  
 
  
- دمو : [users managment ](https://ghaninia.ir/wp-content/uploads/download-1.png) , [permissions](https://ghaninia.ir/wp-content/uploads/download-2.png) , [roles](https://ghaninia.ir/wp-content/uploads/download-3.png) , [create ticket](https://ghaninia.ir/wp-content/uploads/download-4.png) , [observationTickets](https://ghaninia.ir/wp-content/uploads/download-5.png) , [factors](https://ghaninia.ir/wp-content/uploads/download-6.png) , [add Coins](https://ghaninia.ir/wp-content/uploads/download-7.png)
- 
+ دمو ها : [مدیریت کاربران](https://ghaninia.ir/wp-content/uploads/download-1.png) , [پرمیشن ها](https://ghaninia.ir/wp-content/uploads/download-2.png) , [نقش ها](https://ghaninia.ir/wp-content/uploads/download-3.png) , [ساخت یک تیکت](https://ghaninia.ir/wp-content/uploads/download-4.png) , [مشاهده جزییات تیکت](https://ghaninia.ir/wp-content/uploads/download-5.png) , [فاکتور ها](https://ghaninia.ir/wp-content/uploads/download-6.png) , [شارژ کیف پول](https://ghaninia.ir/wp-content/uploads/download-7.png)
 </div>
