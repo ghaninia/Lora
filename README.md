@@ -19,8 +19,10 @@
 شما میتوانید به راحتی لورا رو توسعه بدهید خوانایی و استفاده به موقع از اجزایی لاراول شما را مجاب به استفاده لورا در پروژه های خود میکند 
 شما در این سیستم تمام وسایل لازم رو برای ساخت پروژه جدیدتون دارید و نیاز به دوباره نویسی سیستم نیست 
 لورا  از پکیج های خوبی مثل  استفاده کرده 
-[larabook](https://github.com/larabook/gateway)
-[verta](https://github.com/hekmatinasser/verta)
+
+ - <a href="https://github.com/larabook/gateway">لارابوک</a>
+ - <a href="https://github.com/hekmatinasser/verta">ورتا</a>
+
 </p> 
 
  دمو ها : [مدیریت کاربران](https://ghaninia.ir/wp-content/uploads/download-1.png) , [پرمیشن ها](https://ghaninia.ir/wp-content/uploads/download-2.png) , [نقش ها](https://ghaninia.ir/wp-content/uploads/download-3.png) , [ساخت یک تیکت](https://ghaninia.ir/wp-content/uploads/download-4.png) , [مشاهده جزییات تیکت](https://ghaninia.ir/wp-content/uploads/download-5.png) , [فاکتور ها](https://ghaninia.ir/wp-content/uploads/download-6.png) , [شارژ کیف پول](https://ghaninia.ir/wp-content/uploads/download-7.png)
