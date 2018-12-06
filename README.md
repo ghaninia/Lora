@@ -35,9 +35,11 @@
  - سپس در مسیر پوشه نصبی باید `composer install` را تایپ کنید
  - سپس به فایل .env رفته و کانفیگ سرور و دیتابیس خودتون رو انجام بدهید 
  - بعد در کامند لاین `php artisan fresh` جداول دیتابیس و داده های فیک برای شما ساخته میشود
- -  بعد سرور خود را اجرا کنید `php artisan serve` و لذت ببرید 😇
+ -  بعد سرور خود را اجرا کنید `php artisan serve` 
+ - به مسیر `127.0.0.1:8000` بروید  : **username** : test , **password** : secret
+	
 </p>
 
 
- دمو  : [مدیریت کاربران](https://ghaninia.ir/wp-content/uploads/download-1.png) , [پرمیشن ها](https://ghaninia.ir/wp-content/uploads/download-2.png) , [نقش ها](https://ghaninia.ir/wp-content/uploads/download-3.png) , [ساخت یک تیکت](https://ghaninia.ir/wp-content/uploads/download-4.png) , [مشاهده جزییات تیکت](https://ghaninia.ir/wp-content/uploads/download-5.png) , [فاکتور ها](https://ghaninia.ir/wp-content/uploads/download-6.png) , [شارژ کیف پول](https://ghaninia.ir/wp-content/uploads/download-7.png)
+ دمو ها : [مدیریت کاربران](https://ghaninia.ir/wp-content/uploads/download-1.png) , [پرمیشن ها](https://ghaninia.ir/wp-content/uploads/download-2.png) , [نقش ها](https://ghaninia.ir/wp-content/uploads/download-3.png) , [ساخت یک تیکت](https://ghaninia.ir/wp-content/uploads/download-4.png) , [مشاهده جزییات تیکت](https://ghaninia.ir/wp-content/uploads/download-5.png) , [فاکتور ها](https://ghaninia.ir/wp-content/uploads/download-6.png) , [شارژ کیف پول](https://ghaninia.ir/wp-content/uploads/download-7.png)
 </div>
