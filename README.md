@@ -37,8 +37,9 @@
  - بعد در کامند لاین `php artisan fresh` جداول دیتابیس و داده های فیک برای شما ساخته میشود
  -  بعد سرور خود را اجرا کنید `php artisan serve` 
  - به مسیر `127.0.0.1:8000` بروید  :
-**username** : test 
-**password** : secret
+ <br>
+  **username** : test <br>
+   **password** : secret
 </p>
 
 
