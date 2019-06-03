@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Dashboard;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PayStore;
 use App\Models\Discount;
@@ -16,21 +18,23 @@ class CreditController extends Controller
     public function index()
     {
         $information = [
-            'title' => trans('dash.credit.charge.text') ,
-            'desc' => trans('dash.credit.charge.desc') ,
-            'breadcrumb' => [
-                trans('dash.credit.charge.text') => null
-            ]
-        ] ;
-        return view('dash.credit.index' , compact('information') ) ;
+             'title'      => trans('dash.credit.charge.text'),
+             'desc'       => trans('dash.credit.charge.desc'),
+             'breadcrumb' => [
+                  trans('dash.credit.charge.text') => null,
+             ],
+        ];
+        return view('dash.credit.index', compact('information'));
     }
+
+
 
     public function pay(PayStore $request)
     {
 
         try {
 
-            $amount = $request->input('amount') ;
+            $amount = $request->input('amount');
             //* در صورتی که کد تخفیف وجود داشت *//
 
             if ($request->has('discount')) {
@@ -41,20 +45,21 @@ class CreditController extends Controller
                     $amount = $request->input('amount') - $amount;
                 } else {
                     //*  بر جسب ریاله *//
-                    $discountAmount = $discount->amount ;
-                    $discountAmount = currency($discountAmount)['currency'] ;
-                    $amount = $amount - $discountAmount ;
+                    $discountAmount = $discount->amount;
+                    $discountAmount = currency($discountAmount)['currency'];
+                    $amount         = $amount - $discountAmount;
                 }
 
                 $discount = $discount->id;
-            } else
+            } else {
                 $discount = null;
+            }
 
 
             $gateway = \Gateway::make(new Zarinpal());
             $gateway->setCallback(route('dashboard.credit.BankResponse'));
 
-            $gateway->price( changeCurrency( $amount , 'rial' ) ); // برجسب تومان
+            $gateway->price(changeCurrency($amount, 'rial')); // برجسب تومان
 
             $gateway->ready();
 
@@ -63,95 +68,97 @@ class CreditController extends Controller
             $transID = $gateway->transactionId(); // شماره تراکنش
 
             Payment::create([
-                'user_id' => $request->user()->id,
-                'discount_id' => $discount,
-                'amount' => changeCurrency( $amount , 'rial' ) ,
-                'ref_id' => $refId,
-                'transaction_id' => $transID,
+                 'user_id'        => $request->user()->id,
+                 'discount_id'    => $discount,
+                 'amount'         => changeCurrency($amount, 'rial'),
+                 'ref_id'         => $refId,
+                 'transaction_id' => $transID,
             ]);
 
             //* redirect to payment
             return $gateway->redirect();
 
-        }
-        catch (\Exception $exception){
-            return $exception->getMessage() ;
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
         }
     }
+
+
 
     public function BankResponse(Request $request)
     {
         try {
 
             //* ارتباط با درگاه بانکی برای تایید *//
-            $gateway = \Gateway::verify();
+            $gateway      = \Gateway::verify();
             $trackingCode = $gateway->trackingCode();
-            $refId = $gateway->refId();
+            $refId        = $gateway->refId();
 
             //* درخواست پرداخت جاری رو به من بده *//
-            $payment = Payment::with(['discount' , 'user' , 'transaction' ])
-                ->where([ 'ref_id' => $refId ])
-                ->first() ;
+            $payment = Payment::with(['discount', 'user', 'transaction'])
+                              ->where(['ref_id' => $refId])
+                              ->first()
+            ;
 
             //* اگر درخواست وجود داشت برو تو شرط *//
             $result = Payment::where(['ref_id' => $refId])->update([
-                'tracking_code' => $trackingCode ,
-                'status' => Enum::TRANSACTION_SUCCEED
-            ]);
+                 'tracking_code' => $trackingCode,
+                 'status'        => Enum::TRANSACTION_SUCCEED,
+            ])
+            ;
 
 
-            $amountPayment = $payment->amount ;
+            $amountPayment = $payment->amount;
 
-            if( $result )
-            {
+            if ($result) {
 
-                if ($payment->discount)
-                {
-                    $discount = $payment->discount ;
+                if ($payment->discount) {
+                    $discount = $payment->discount;
                     if ($discount->percent > 0) {
-                        $percent = 100 - $discount->percent ;
-                        $amountPayment = 100 * $amountPayment / $percent ;
+                        $percent       = 100 - $discount->percent;
+                        $amountPayment = 100 * $amountPayment / $percent;
 
                     } else {
                         //*  بر جسب ریاله *//
-                        $discountAmount = $discount->amount ;
-                        $amountPayment = $amountPayment + $discountAmount ;
+                        $discountAmount = $discount->amount;
+                        $amountPayment  = $amountPayment + $discountAmount;
                     }
                 }
 
 
                 me()->update([
-                    'credit' => me()->credit + $amountPayment ,
+                     'credit' => me()->credit + $amountPayment,
                 ]);
 
                 return view('dash.credit.bankresponse')->with([
-                    'message' => trans('dash.messages.success.credit.pay') ,
-                    'status'  => true ,
-                    'payment' => $payment ,
-                    'amountPayment' => $amountPayment
+                     'message'       => trans('dash.messages.success.credit.pay'),
+                     'status'        => true,
+                     'payment'       => $payment,
+                     'amountPayment' => $amountPayment,
                 ]);
             }
 
 
-        } catch ( RetryException $e) {
+        } catch (RetryException $e) {
 
             return view('dash.credit.bankresponse')->with([
-                'message' => $e->getMessage() ,
-                'status'  => false ,
+                 'message' => $e->getMessage(),
+                 'status'  => false,
             ]);
 
         } catch (\Exception $e) {
 
             Payment::where([
-                'status'         => Enum::TRANSACTION_INIT ,
-                'transaction_id' => $request->input('transaction_id')
+                 'status'         => Enum::TRANSACTION_INIT,
+                 'transaction_id' => $request->input('transaction_id'),
             ])->update([
-                'status' => Enum::TRANSACTION_FAILED
-            ]);
+                 'status' => Enum::TRANSACTION_FAILED,
+            ])
+            ;
 
-            return view('dash.credit.bankresponse' )->with([
-                'message' => $e->getMessage() ,
-                'status'  => false ,
+            return view('dash.credit.bankresponse')->with([
+                 'message' => $e->getMessage(),
+                 'status'  => false,
             ]);
         }
 
