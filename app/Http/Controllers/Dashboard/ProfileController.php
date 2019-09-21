@@ -37,22 +37,26 @@ class ProfileController extends Controller
 
     public function store(ProfileUpdate $request)
     {
-        if ($request->hasFile('picture'))
+
+        $list = [
+            "firstname" => $request->input('firstname') ,
+            "lastname"  => $request->input('lastname') ,
+            "username"  => $request->input('username') ,
+            "email"     => $request->input('email') ,
+            "mobile"    => $request->input('mobile') ,
+            "gender"    => $request->input('gender') ,
+            "theme"     => $request->input("theme") ,
+        ];
+
+        if ($request->hasFile('picture')){
             Picture::delete(Auth::guard("user")->user()->picture) ;
+            $list["picture"]   = Picture::create("picture") ;
+        }
 
         Auth::guard("user")->user()->update(
             $request->input("password") ? [
                 "password"  => bcrypt($request->input("password"))
-            ] : [
-                "firstname" => $request->input('firstname') ,
-                "lastname"  => $request->input('lastname') ,
-                "username"  => $request->input('username') ,
-                "email"     => $request->input('email') ,
-                "mobile"    => $request->input('mobile') ,
-                "gender"    => $request->input('gender') ,
-                "theme"     => $request->input("theme") ,
-                "picture"   => Picture::create("picture") ,
-            ]
+            ] : $list
         );
         return RepMessage(trans("dash.messages.success.profile.update")) ;
     }
