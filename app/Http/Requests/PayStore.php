@@ -19,8 +19,8 @@ class PayStore extends FormRequest
 
         $canUsageDiscounts = Discount::canUsage()->pluck('code')->toArray() ;
 
-        $min = currency(config('dash.min_credit'))['currency'] ;
-        $max = currency(config('dash.max_credit'))['currency'] ;
+        $min = currency(config('dashboard.min_credit'))['currency'] ;
+        $max = currency(config('dashboard.max_credit'))['currency'] ;
 
         return [
             'amount' => [

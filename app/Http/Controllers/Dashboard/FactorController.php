@@ -62,13 +62,13 @@ class FactorController extends Controller
             ->leftjoin('discounts', 'discount_id', '=', 'discounts.id')
             ->with("transaction.log" , 'user' , 'discount')
             ->orderBy( $request->input('orderBy' , 'created_at') , $request->input('order' , 'desc') )
-            ->paginate( config('dash.paginate_size') ) ;
+            ->paginate( config('dashboard.paginate_size') ) ;
 
         $information = [
-            'title' => trans('dash.factor.payment') ,
-            'desc'  => trans('dash.factor.payment_label') ,
+            'title' => trans('dashboard.factor.payment') ,
+            'desc'  => trans('dashboard.factor.payment_label') ,
             'breadcrumb' => [
-                trans('dash.factor.payment') => null
+                trans('dashboard.factor.payment') => null
             ]
         ];
 
@@ -78,7 +78,7 @@ class FactorController extends Controller
             Enum::TRANSACTION_FAILED
         ];
 
-        return view("dash.factor.payments" , compact('payments' , 'information' , 'rangeCreait' , 'statusPayment') ) ;
+        return view("dashboard.factor.payments" , compact('payments' , 'information' , 'rangeCreait' , 'statusPayment') ) ;
     }
 
     public function factors(Request $request)

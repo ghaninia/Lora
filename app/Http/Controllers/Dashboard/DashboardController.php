@@ -14,14 +14,14 @@ class DashboardController extends Controller
         $data = [
             'user' => [
                 'count' => User::all()->count() ,
-                'text' => trans('dash.main.user.text')
+                'text' => trans('dashboard.main.user.text')
             ] ,
             'permission' => [
                 'count' => Permission::all()->count() ,
-                'text' => trans('dash.main.permission.text')
+                'text' => trans('dashboard.main.permission.text')
             ]
         ];
-        return view("dash.dashboard" , compact('data') ) ;
+        return view("dashboard.dashboard" , compact('data') ) ;
     }
 
 }

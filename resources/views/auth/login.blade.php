@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('auth.layouts.master')
 @section('content')
     <form class="login100-form validate-form" action="{{ route('login') }}" method="post" >
         {{ csrf_field() }}

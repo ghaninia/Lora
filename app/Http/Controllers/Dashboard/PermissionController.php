@@ -24,28 +24,28 @@ class PermissionController extends Controller
             ->get() ;
 
         $information = [
-            'title' => trans('dash.permissions.all.text') ,
-            'desc'  => trans('dash.permissions.all.desc') ,
+            'title' => trans('dashboard.permissions.all.text') ,
+            'desc'  => trans('dashboard.permissions.all.desc') ,
             'breadcrumb' => [
-                trans('dash.permissions.all.text') => null
+                trans('dashboard.permissions.all.text') => null
             ]
         ] ;
 
 
-        return view('dash.permission.index' , compact('permissions','information') ) ;
+        return view('dashboard.permission.index' , compact('permissions','information') ) ;
     }
 
     public function create()
     {
         $information = [
-            'title' => trans('dash.permissions.create.text') ,
-            'desc'  => trans('dash.permissions.create.desc') ,
+            'title' => trans('dashboard.permissions.create.text') ,
+            'desc'  => trans('dashboard.permissions.create.desc') ,
             'breadcrumb' => [
-                trans('dash.permissions.all.text') => route('dashboard.permission.index') ,
-                trans('dash.permissions.create.text') => null
+                trans('dashboard.permissions.all.text') => route('dashboard.permission.index') ,
+                trans('dashboard.permissions.create.text') => null
             ]
         ] ;
-        return view("dash.permission.create" , compact('information') ) ;
+        return view("dashboard.permission.create" , compact('information') ) ;
     }
 
     public function store(PermissionStore $request)
@@ -55,22 +55,22 @@ class PermissionController extends Controller
             'description' => $request->input('description') ,
             'default' => $request->input('default' , false )
         ]);
-        return RepMessage(trans('dash.messages.success.permissions.store') , true , "dashboard.permission.index" ) ;
+        return RepMessage(trans('dashboard.messages.success.permissions.store') , true , "dashboard.permission.index" ) ;
     }
 
     public function edit(Permission $permission)
     {
 
         $information = [
-            'title' => trans('dash.permissions.edit.text') ,
-            'desc'  => trans('dash.permissions.edit.desc') ,
+            'title' => trans('dashboard.permissions.edit.text') ,
+            'desc'  => trans('dashboard.permissions.edit.desc') ,
             'breadcrumb' => [
-                trans('dash.permissions.all.text') => route('dashboard.permission.index') ,
-                trans('dash.permissions.edit.text') => null
+                trans('dashboard.permissions.all.text') => route('dashboard.permission.index') ,
+                trans('dashboard.permissions.edit.text') => null
             ]
         ] ;
 
-        return view('dash.permission.edit',compact( 'permission' ,'information')) ;
+        return view('dashboard.permission.edit',compact( 'permission' ,'information')) ;
     }
 
     public function update(PermissionUpdate $request, Permission $permission)
@@ -80,7 +80,7 @@ class PermissionController extends Controller
             'description' => $request->input('description') ,
             'default' => $request->input('default' , false)
         ]);
-        return RepMessage(trans('dash.messages.success.permissions.update') , true ) ;
+        return RepMessage(trans('dashboard.messages.success.permissions.update') , true ) ;
     }
 
     public function destroy(Permission $permission)
@@ -88,8 +88,8 @@ class PermissionController extends Controller
         if (!$permission->default)
         {
             $permission->delete() ;
-            return RepMessage(trans('dash.messages.success.permissions.delete')) ;
+            return RepMessage(trans('dashboard.messages.success.permissions.delete')) ;
         }
-        return RepMessage(trans('dash.messages.errors.delete_fail') , false ) ;
+        return RepMessage(trans('dashboard.messages.errors.delete_fail') , false ) ;
     }
 }

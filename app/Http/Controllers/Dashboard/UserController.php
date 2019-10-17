@@ -15,10 +15,10 @@ class UserController extends Controller
     public function index(UserIndex $request)
     {
         $information = [
-            'title' => trans("dash.users.all.text") ,
-            'desc'  => trans("dash.users.all.desc") ,
+            'title' => trans("dashboard.users.all.text") ,
+            'desc'  => trans("dashboard.users.all.desc") ,
             'breadcrumb' => [
-                trans("dash.users.all.text") => null
+                trans("dashboard.users.all.text") => null
             ]
         ] ;
         $roles = Role::select(['id','name'])->withCount('users')->get() ;
@@ -49,29 +49,29 @@ class UserController extends Controller
                 ['credit' , '>=' , changeCurrency($credit[0] , 'rial')] ,
                 ['credit' , '<=' , changeCurrency($credit[1] , 'rial')]
             ]) ;
-        })->paginate( config('dash.paginate_size') ) ;
+        })->paginate( config('dashboard.paginate_size') ) ;
 
         $rangeCreait = User::select([
             DB::raw("MIN(credit) as min") ,
             DB::raw("MAX(credit) as max")
         ])->first();
 
-        return view('dash.user.index',compact('information' , 'roles' , 'users' , 'appends' , 'rangeCreait')) ;
+        return view('dashboard.user.index',compact('information' , 'roles' , 'users' , 'appends' , 'rangeCreait')) ;
     }
 
     public function create()
     {
         $information = [
-            'title' => trans('dash.users.create.text') ,
-            'desc'  => trans('dash.users.create.desc') ,
+            'title' => trans('dashboard.users.create.text') ,
+            'desc'  => trans('dashboard.users.create.desc') ,
             'breadcrumb' => [
-                trans("dash.users.all.text") => route('dashboard.user.index') ,
-                trans('dash.users.create.text') => null
+                trans("dashboard.users.all.text") => route('dashboard.user.index') ,
+                trans('dashboard.users.create.text') => null
             ]
         ] ;
         $roles = Role::select(['id' , 'name' , 'description'])->get() ;
 
-        return view('dash.user.create' , compact('roles' ,'information') ) ;
+        return view('dashboard.user.create' , compact('roles' ,'information') ) ;
     }
 
     public function store(userstore $request)
@@ -96,7 +96,7 @@ class UserController extends Controller
 
         return redirect()->route('dashboard.user.edit' , $request->input('username') )->with([
             'status' => true ,
-            'message' => trans('dash.messages.success.users.store')
+            'message' => trans('dashboard.messages.success.users.store')
         ]);
 
     }
@@ -104,15 +104,15 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $information = [
-            'title' => trans('dash.users.edit.text') ,
-            'desc'  => trans('dash.users.edit.desc') ,
+            'title' => trans('dashboard.users.edit.text') ,
+            'desc'  => trans('dashboard.users.edit.desc') ,
             'breadcrumb' => [
-                trans("dash.users.all.text") => route('dashboard.user.index') ,
-                trans('dash.users.edit.text') => null
+                trans("dashboard.users.all.text") => route('dashboard.user.index') ,
+                trans('dashboard.users.edit.text') => null
             ]
         ] ;
         $roles = Role::select(['id' , 'name' , 'description'])->get() ;
-        return view('dash.user.edit' , compact('user' , 'roles' ,'information') ) ;
+        return view('dashboard.user.edit' , compact('user' , 'roles' ,'information') ) ;
     }
 
     public function update(UserUpdate $request, User $user)
@@ -136,18 +136,18 @@ class UserController extends Controller
         $user->update( $request->input('type') == "password" ? ['password' => bcrypt($request->input('password'))] : $update );
 
         if ($request->input('type') == "password" )
-            return RepMessage( trans('dash.messages.success.users.update.password') ) ;
+            return RepMessage( trans('dashboard.messages.success.users.update.password') ) ;
 
         return redirect()->route('dashboard.user.edit' , $request->input('username') )->with([
             'status' => true ,
-            'message' => trans('dash.messages.success.users.update.profile')
+            'message' => trans('dashboard.messages.success.users.update.profile')
         ]);
     }
 
     public function destroy(User $user)
     {
         $user->delete() ;
-        return RepMessage(trans('dash.messages.success.users.delete')) ;
+        return RepMessage(trans('dashboard.messages.success.users.delete')) ;
     }
 
 }

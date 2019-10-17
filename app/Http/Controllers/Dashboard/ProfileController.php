@@ -15,24 +15,24 @@ class ProfileController extends Controller
         if ($request->input("index" , "edit" ) == "edit")
         {
             $information = [
-                'title' => trans("dash.profile.edit.text") ,
-                'desc'  => trans("dash.profile.edit.desc") ,
+                'title' => trans("dashboard.profile.edit.text") ,
+                'desc'  => trans("dashboard.profile.edit.desc") ,
                 'breadcrumb' => [
-                    trans("dash.profile.edit.text") => null
+                    trans("dashboard.profile.edit.text") => null
                 ]
             ] ;
         }
         else
         {
             $information = [
-                'title' => trans("dash.profile.changepassword.text") ,
-                'desc'  => trans("dash.profile.changepassword.desc") ,
+                'title' => trans("dashboard.profile.changepassword.text") ,
+                'desc'  => trans("dashboard.profile.changepassword.desc") ,
                 'breadcrumb' => [
-                    trans("dash.profile.changepassword.text") => null
+                    trans("dashboard.profile.changepassword.text") => null
                 ]
             ] ;
         }
-        return view("dash.profile.index" , compact("information" , 'user') ) ;
+        return view("dashboard.profile.index" , compact("information" , 'user') ) ;
     }
 
     public function store(ProfileUpdate $request)
@@ -58,6 +58,6 @@ class ProfileController extends Controller
                 "password"  => bcrypt($request->input("password"))
             ] : $list
         );
-        return RepMessage(trans("dash.messages.success.profile.update")) ;
+        return RepMessage(trans("dashboard.messages.success.profile.update")) ;
     }
 }

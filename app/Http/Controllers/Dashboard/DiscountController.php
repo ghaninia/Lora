@@ -26,14 +26,14 @@ class DiscountController extends Controller
             ->paginate( config('dash.paginate_size') ) ;
 
         $information = [
-            'title' => trans('dash.discounts.label') ,
-            'desc'  => trans('dash.discounts.desc') ,
+            'title' => trans('dashboard.discounts.label') ,
+            'desc'  => trans('dashboard.discounts.desc') ,
             'breadcrumb' => [
-                trans('dash.discounts.label') => null
+                trans('dashboard.discounts.label') => null
             ]
         ];
 
-        return view('dash.discount.index' , compact('discounts' , 'information') ) ;
+        return view('dashboard.discount.index' , compact('discounts' , 'information') ) ;
     }
 
     public function store(DiscountStore $request)
@@ -48,7 +48,7 @@ class DiscountController extends Controller
             'amount'  => $request->input('amount' , 0) ,
         ]);
 
-        return RepMessage( trans('dash.messages.success.discounts.create') ) ;
+        return RepMessage( trans('dashboard.messages.success.discounts.create') ) ;
     }
 
 
@@ -56,10 +56,10 @@ class DiscountController extends Controller
     {
 
         $information = [
-            'title' => trans('dash.discounts.show_label') ,
-            'desc'  => trans('dash.discounts.show_desc') ,
+            'title' => trans('dashboard.discounts.show_label') ,
+            'desc'  => trans('dashboard.discounts.show_desc') ,
             'breadcrumb' => [
-                trans('dash.discounts.label') => route('dashboard.discount.index') ,
+                trans('dashboard.discounts.label') => route('dashboard.discount.index') ,
                 $discount->code => null
             ]
         ] ;
@@ -82,9 +82,9 @@ class DiscountController extends Controller
                 $query->where( PeriodDate(false , 'payments.created_at') ) ;
             })
             ->orderBy( $request->input('orderBy' , 'created_at') , $request->input('order' , 'desc') )
-            ->paginate( config('dash.paginate_size') ) ;
+            ->paginate( config('dashboard.paginate_size') ) ;
 
-        return view('dash.discount.show' , compact('discount' , 'information' , 'payments') ) ;
+        return view('dashboard.discount.show' , compact('discount' , 'information' , 'payments') ) ;
     }
 
 
@@ -105,7 +105,7 @@ class DiscountController extends Controller
         ]) ;
 
         return redirect()->route("dashboard.discount.show" , ['discount' => $discount->code])->with([
-            'message' => trans('dash.messages.success.discounts.update') ,
+            'message' => trans('dashboard.messages.success.discounts.update') ,
             'status' => true ,
         ]);
     }

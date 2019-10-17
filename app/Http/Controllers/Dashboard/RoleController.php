@@ -16,10 +16,10 @@ class RoleController extends Controller
     {
 
         $information = [
-            'title' => trans('dash.roles.all.text') ,
-            'desc'  => trans("dash.roles.all.desc") ,
+            'title' => trans('dashboard.roles.all.text') ,
+            'desc'  => trans("dashboard.roles.all.desc") ,
             'breadcrumb' => [
-                trans("dash.roles.all.text") => null
+                trans("dashboard.roles.all.text") => null
             ]
         ] ;
 
@@ -36,23 +36,23 @@ class RoleController extends Controller
             })
             ->get() ;
 
-        return view('dash.role.index' , compact('roles' , 'information') ) ;
+        return view('dashboard.role.index' , compact('roles' , 'information') ) ;
     }
 
     public function create()
     {
 
         $information = [
-            'title' => trans('dash.roles.create.text') ,
-            'desc'  => trans("dash.roles.create.desc") ,
+            'title' => trans('dashboard.roles.create.text') ,
+            'desc'  => trans("dashboard.roles.create.desc") ,
             'breadcrumb' => [
-                trans('dash.roles.all.text') => route('dashboard.role.index') ,
-                trans("dash.roles.create.text") => null
+                trans('dashboard.roles.all.text') => route('dashboard.role.index') ,
+                trans("dashboard.roles.create.text") => null
             ]
         ] ;
 
         $permissions = Permission::select(['id','name','description'])->get() ;
-        return view("dash.role.create" , compact('information' , 'permissions') ) ;
+        return view("dashboard.role.create" , compact('information' , 'permissions') ) ;
     }
 
     public function store(RoleStore $request)
@@ -64,7 +64,7 @@ class RoleController extends Controller
             'picture' => Picture::create('picture') ,
         ]);
         $role->permissions()->sync($request->input('permissions' , [] )) ;
-        return RepMessage(trans('dash.messages.success.roles.update') , true , 'dashboard.role.index' ) ;
+        return RepMessage(trans('dashboard.messages.success.roles.update') , true , 'dashboard.role.index' ) ;
     }
 
     public function show(Role $role)
@@ -77,18 +77,18 @@ class RoleController extends Controller
 
 
         $information = [
-            'title' => trans('dash.roles.edit.text') ,
-            'desc'  => trans("dash.roles.edit.desc") ,
+            'title' => trans('dashboard.roles.edit.text') ,
+            'desc'  => trans("dashboard.roles.edit.desc") ,
             'breadcrumb' => [
-                trans('dash.roles.all.text') => route('dashboard.role.index') ,
-                trans("dash.roles.edit.text") => null
+                trans('dashboard.roles.all.text') => route('dashboard.role.index') ,
+                trans("dashboard.roles.edit.text") => null
             ]
         ] ;
 
         $role_permissions = $role->permissions()->pluck('id')->toArray() ;
         $permissions = Permission::select(['id','name','description'])->get() ;
 
-        return view('dash.role.edit' , compact('role' , 'information' , 'role_permissions' , 'permissions' ) ) ;
+        return view('dashboard.role.edit' , compact('role' , 'information' , 'role_permissions' , 'permissions' ) ) ;
     }
 
     public function update(RoleUpdate $request, Role $role)
@@ -104,7 +104,7 @@ class RoleController extends Controller
         }
         $role->permissions()->sync($request->input('permissions' , [] )) ;
         $role->update($update);
-        return RepMessage(trans('dash.messages.success.roles.update') ) ;
+        return RepMessage(trans('dashboard.messages.success.roles.update') ) ;
     }
 
     public function destroy(Role $role)
@@ -113,8 +113,8 @@ class RoleController extends Controller
         {
             $role->delete() ;
 
-            return RepMessage(trans('dash.messages.success.roles.delete')) ;
+            return RepMessage(trans('dashboard.messages.success.roles.delete')) ;
         }
-        return RepMessage(trans('dash.messages.errors.delete_fail') , false ) ;
+        return RepMessage(trans('dashboard.messages.errors.delete_fail') , false ) ;
     }
 }

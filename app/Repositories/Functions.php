@@ -10,7 +10,7 @@ function avatar($user = null , $size = "thumb" , $guard = "user" )
     if(is_null($user)){
         $user = auth()->guard($guard)->user() ;
         if(empty($user->picture)){
-            return ($user->gender == 'male' ? asset(config('dash.male_pic_default')) : asset(config('dash.female_pic_default')) ) ;
+            return ($user->gender == 'male' ? asset(config('dashboard.male_pic_default')) : asset(config('dashboard.female_pic_default')) ) ;
         }else{
             return Picture::get( $user->picture , $size) ;
         }
@@ -19,7 +19,7 @@ function avatar($user = null , $size = "thumb" , $guard = "user" )
     {
         if (!! $user){
             if(empty($user->picture)){
-                return ($user->gender == 'male' ? asset(config('dash.male_pic_default')) : asset(config('dash.female_pic_default')) ) ;
+                return ($user->gender == 'male' ? asset(config('dashboard.male_pic_default')) : asset(config('dashboard.female_pic_default')) ) ;
             }else{
                 return Picture::get( $user->picture , $size) ;
             }
@@ -101,7 +101,7 @@ function Hightlight( $routeName , $createClass = true , $activeCode = "active" )
 /*** return CreateTime format ***/
 /********************************/
 function CreateTime($item , $create_column = "created_at"){
-    return $item->$create_column->format(config("dash.format_date"));
+    return $item->$create_column->format(config("dashboard.format_date"));
 }
 /*****************************/
 /*** sort table dashboard  ***/
@@ -240,7 +240,7 @@ function picture($item , $size = 'thumb')
     {
         return Picture::get( $item->picture , $size) ;
     }
-    return asset(config('dash.perview'));
+    return asset(config('dashboard.perview'));
 }
 /*****************/
 /*** str slice ***/
@@ -289,34 +289,34 @@ function genders()
 function currency ($currency , $numberFormat = false )
 {
     //*  قیمت دیفالت سیستم  *//
-    $format = strtolower( config('dash.currency') ) ;
+    $format = strtolower( config('dashboard.currency') ) ;
 
     if ( $format == 'rial' )
         return [
             'currency' => $numberFormat ?  number_format($currency) : $currency  ,
-            'type' => trans('dash.currency.rial')
+            'type' => trans('dashboard.currency.rial')
         ] ;
     elseif ($format == 'toman')
         return [
             'currency' => $numberFormat ?  number_format( round($currency / 10 , 2) ) : round($currency / 10 , 2) ,
-            'type' => trans('dash.currency.toman')
+            'type' => trans('dashboard.currency.toman')
         ];
     elseif ($format == 'thousandtoman')
         return [
             'currency' => $numberFormat ?  number_format( round($currency / 10000 , 2) ) : round($currency / 10000 , 2),
-            'type' => trans('dash.currency.thousandtoman')
+            'type' => trans('dashboard.currency.thousandtoman')
         ];
     elseif ($format == 'thousandrial')
         return [
             'currency' => $numberFormat ? number_format( round($currency / 1000 , 2) ) :round($currency / 1000 , 2),
-            'type' => trans('dash.currency.thousandrial')
+            'type' => trans('dashboard.currency.thousandrial')
         ];
 
 }
 
 function changeCurrency($currency , $changeTo = 'rial')
 {
-    $format = strtolower( config('dash.currency') ) ;
+    $format = strtolower( config('dashboard.currency') ) ;
     $changing   =
     [
         //*  *//
@@ -354,7 +354,7 @@ function changeCurrency($currency , $changeTo = 'rial')
 
 
 function stepCurrency(){
-    switch ( config('dash.currency') )
+    switch ( config('dashboard.currency') )
     {
         case "rial"  :
             $step = 10000 ;
@@ -389,10 +389,10 @@ function statusTransaction($status)
     switch ($status)
     {
         case "SUCCEED" :
-            return trans('dash.status.succeed') ;
+            return trans('dashboard.status.succeed') ;
         case "FAILED" :
-            return trans('dash.status.failed') ;
+            return trans('dashboard.status.failed') ;
         case "INIT" :
-            return trans('dash.status.init') ;
+            return trans('dashboard.status.init') ;
     }
 }

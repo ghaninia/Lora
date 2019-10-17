@@ -10,19 +10,18 @@ use Larabookir\Gateway\Zarinpal\Zarinpal;
 
 class CreditController extends Controller
 {
-
     //* نمایش صفحه شارژ کیف پول *//
     //
     public function index()
     {
         $information = [
-            'title' => trans('dash.credit.charge.text') ,
-            'desc' => trans('dash.credit.charge.desc') ,
+            'title' => trans('dashboard.credit.charge.text') ,
+            'desc' => trans('dashboard.credit.charge.desc') ,
             'breadcrumb' => [
-                trans('dash.credit.charge.text') => null
+                trans('dashboard.credit.charge.text') => null
             ]
         ] ;
-        return view('dash.credit.index' , compact('information') ) ;
+        return view('dashboard.credit.index' , compact('information') ) ;
     }
 
     public function pay(PayStore $request)
@@ -124,8 +123,8 @@ class CreditController extends Controller
                     'credit' => me()->credit + $amountPayment ,
                 ]);
 
-                return view('dash.credit.bankresponse')->with([
-                    'message' => trans('dash.messages.success.credit.pay') ,
+                return view('dashboard.credit.bankresponse')->with([
+                    'message' => trans('dashboard.messages.success.credit.pay') ,
                     'status'  => true ,
                     'payment' => $payment ,
                     'amountPayment' => $amountPayment
@@ -135,7 +134,7 @@ class CreditController extends Controller
 
         } catch ( RetryException $e) {
 
-            return view('dash.credit.bankresponse')->with([
+            return view('dashboard.credit.bankresponse')->with([
                 'message' => $e->getMessage() ,
                 'status'  => false ,
             ]);
@@ -149,7 +148,7 @@ class CreditController extends Controller
                 'status' => Enum::TRANSACTION_FAILED
             ]);
 
-            return view('dash.credit.bankresponse' )->with([
+            return view('dashboard.credit.bankresponse' )->with([
                 'message' => $e->getMessage() ,
                 'status'  => false ,
             ]);

@@ -16,7 +16,7 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         $side = $this->side( $request->input('search') ) ;
-        return view("dash.ticket.index" , compact('side') ) ;
+        return view("dashboard.ticket.index" , compact('side') ) ;
     }
 
     public function side()
@@ -31,7 +31,7 @@ class TicketController extends Controller
             ->pluck('counter' , 'tracking_code')
             ->toArray() ;
 
-        return view('dash.ticket.side' , compact('tickets' , 'NotReads') )->render() ;
+        return view('dashboard.ticket.side' , compact('tickets' , 'NotReads') )->render() ;
     }
 
     public function content()
@@ -43,7 +43,7 @@ class TicketController extends Controller
             if (!! $contents->first() )
                 $information = $contents->first()->first() ;
 
-        return view('dash.ticket.content' , compact('contents' , 'information' , 'trakingCode') ) ;
+        return view('dashboard.ticket.content' , compact('contents' , 'information' , 'trakingCode') ) ;
     }
 
     public function changeStatus(Request $request)
@@ -57,7 +57,7 @@ class TicketController extends Controller
             ->whereIn('id' , Ticket::access() )
             ->update(['status' => 'disable' ]) ;
 
-        return RepMessage(trans('dash.tickets.messages.changestatus')) ;
+        return RepMessage(trans('dashboard.tickets.messages.changestatus')) ;
     }
 
     public function replay(Request $request)
@@ -149,13 +149,13 @@ class TicketController extends Controller
                 $items =  Role::select(['id','name','description'])->where("id" , "<>" , $role_id )->get() ;
             }
 
-            return view('dash.ticket.append_tickets_toid' , [
+            return view('dashboard.ticket.append_tickets_toid' , [
                 'items' => $items ,
                 'type'  => $request->input('to_type')
             ])->render() ;
         }
 
-        return view("dash.ticket.append_tickets")->render() ;
+        return view("dashboard.ticket.append_tickets")->render() ;
     }
 
     public function appendStore(TicketAppendStore $request)
@@ -182,7 +182,7 @@ class TicketController extends Controller
             'message' => strip_tags( $request->input('message') ) ,
         ]);
 
-        return RepMessage( trans('dash.messages.success.tickets.create') , true ) ;
+        return RepMessage( trans('dashboard.messages.success.tickets.create') , true ) ;
 
     }
     

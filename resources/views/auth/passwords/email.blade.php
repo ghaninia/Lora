@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('auth.layouts.master')
 @section('content')
     @if (session('status'))
         <center>

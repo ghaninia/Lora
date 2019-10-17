@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('auth.layouts.master')
 @section('content')
     <p >{{ $email }}</p>
     <form class="login100-form validate-form" action="{{ route('password.request') }}" method="post">
