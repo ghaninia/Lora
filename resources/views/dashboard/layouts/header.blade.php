@@ -41,7 +41,10 @@
                 <!-- User Name / Avatar -->
                 <div class="user-details">
                   <div class="user-avatar status-online"><img src="{{ avatar() }}" alt=""></div>
-                  <div class="user-name">{{ username() }}</div>
+                  <div class="user-name">
+                    {{ username() }}
+                    <span>{{ auth()->user()->fullname }}</span>
+                  </div>
                 </div>
             </div>
 

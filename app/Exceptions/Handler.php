@@ -32,10 +32,12 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof TokenMismatchException)
-            return redirect()->route('login')->with(['message' => 'پُرسَپ | توکن شما مسدود شده است.' ]);
+            return redirect()->route('login')->with(['message' => 'توکن شما مسدود شده است.' ]);
 
         if ( $exception instanceof NotFoundHttpException )
-            return response()->view("errors.404" , ["p_title" => trans('dash.errors.404.text') ] , 200);
+            return response()->view("errors.404" , [
+                "p_title" => trans('dashboard.errors.404.text')
+            ] , 200);
 
         return parent::render($request, $exception);
     }

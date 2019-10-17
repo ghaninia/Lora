@@ -185,34 +185,7 @@
         </div>
 
         {{ $discounts->links('dashboard.layouts.paginate') }}
-
         @endif
     </div>
-
 </div>
-
-@stop
-
-@section('plugins')
-    <script src="{{ asset('asset/libs/datepicker/datepicker.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('asset/libs/datepicker/datepicker.css') }}">
-    <script>
-        $(function(){
-            $(".calender").each(function () {
-                var calender = $(this) ;
-                var valField = $("input" , calender ) ;
-
-                if (valField.val().trim() == "")
-                    var valField = now() ;
-                else
-                    var valField = valField.val() ;
-
-                $(".body" , calender ).datepicker({
-                    altSecondaryField : $("input" , calender ) ,
-                    date : valField ,
-                    gregorian : false
-                });
-            });
-        });
-    </script>
 @stop

@@ -1,0 +1,9 @@
+{
+    "/assets/auth/js/app.js": "/assets/auth/js/app.js",
+    "/assets/dashboard/js/app.js": "/assets/dashboard/js/app.js",
+    "/assets/dashboard/js/librarys.js": "/assets/dashboard/js/librarys.js",
+    "/assets/librarys/css/app.css": "/assets/librarys/css/app.css",
+    "/assets/auth/css/app.css": "/assets/auth/css/app.css",
+    "/assets/dashboard/css/app.css": "/assets/dashboard/css/app.css",
+    "/assets/errors/css/app.css": "/assets/errors/css/app.css"
+}

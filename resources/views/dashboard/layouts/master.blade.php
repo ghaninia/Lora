@@ -11,8 +11,8 @@
     @access("ticket")
     <meta name="ticket-url" content="{{ route('dashboard.ticket.index') }}">
     @endaccess
-    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset(sprintf('asset/css/colors/%s.css' , theme() )) }}">
+    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset(sprintf('assets/dashboard/css/colors/%s.css' , theme() )) }}">
 </head>
 
 <body class="gray">
@@ -79,32 +79,9 @@
             </div>
         </div>
     </div>
-<!-- Scripts
-================================================== -->
-<script src="{{ asset('asset/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('asset/js/jquery-migrate-3.0.0.min.js') }}"></script>
-<script src="{{ asset('asset/js/mmenu.min.js') }}"></script>
 
-<script src="{{ asset('asset/js/tippy.all.min.js') }}"></script>
-<script src="{{ asset('asset/js/simplebar.min.js') }}"></script>
-<script src="{{ asset('asset/js/bootstrap-slider.min.js') }}"></script>
-<script src="{{ asset('asset/js/bootstrap-select.min.js') }}"></script>
-
-<script src="{{ asset('asset/js/clipboard.min.js') }}"></script>
-<script src="{{ asset('asset/js/counterup.min.js') }}"></script>
-<script src="{{ asset('asset/js/magnific-popup.min.js') }}"></script>
-<script src="{{ asset('asset/js/slick.min.js') }}"></script>
-<script src="{{ asset('asset/js/custom.js') }}"></script>
-<script src="{{ asset('asset/js/chart.min.js') }}"></script>
-<script src="{{ asset('asset/js/theme.js') }}"></script>
-
-<script type="text/javascript" src="{{ asset('asset/js/ticket.js') }}"></script>
-<!-- plugins -->
-<script src="{{ asset('asset/libs/library.js') }}"></script>
-
-<script src="{{ asset('asset/libs/sweetalert/sweetalert.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('asset/libs/sweetalert/sweetalert.css') }}">
-@yield("plugins")
+    <script src="{{ asset('assets/dashboard/js/app.js') }}"></script>
+    <script src="{{ asset('assets/dashboard/js/librarys.js') }}"></script>
 </body>
 </html>
 

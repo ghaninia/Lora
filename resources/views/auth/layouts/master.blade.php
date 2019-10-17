@@ -13,11 +13,8 @@
             {{ config('dash.title') }}
         @endif
     </title>
-    <!-- Scripts -->
-    <script src="{{ asset('asset/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('asset/js/auth.js') }}" defer></script>
     <!-- Styles -->
-    <link href="{{ asset('asset/css/auth.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/auth/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="background-auth">
     <div class="limiter">
@@ -27,5 +24,6 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/auth/js/app.js') }}" defer></script>
 </body>
 </html>

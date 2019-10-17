@@ -24,11 +24,11 @@
         @endif
 
 
-        <div class="wrap-input100 validate-input" data-validate="کدامنیتی را وارد نمایید .">
+        <div class="wrap-input100 validate-input recaptcha" data-validate="کدامنیتی را وارد نمایید .">
             <input class="input100" type="text" name="captcha" autocomplete="off" >
             <span class="focus-input100" data-placeholder="کدامنیتی"></span>
             <div class="image" id="captcha">
-                <div class="reload"  onclick="recaptcha(this);"></div>
+                <div class="reload"></div>
                 <img src="{{ route("captcha") }}">
             </div>
         </div>
