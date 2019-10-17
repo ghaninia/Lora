@@ -1,31 +1,28 @@
 <header id="header-container" class="fullwidth dashboard-header not-sticky">
-
   <!-- Header -->
   <div id="header">
     <div class="container">
-      
-      <!-- right Side Content -->
       <div class="right-side">
-        
-        <!-- Logo -->
         <div id="logo">
           <a href="{{ route('dashboard.main') }}">
           </a>
         </div>
-        <!-- Main Navigation -->
-        
-        
-        <!-- Main Navigation / End -->
-        
       </div>
       <!-- right Side Content / End -->
-
-
       <!-- left Side Content / End -->
       <div class="left-side">
+        <div class="header-widget">
+          <div class="credit">
+            <i class="icon-line-awesome-money"></i>
+            @php($credit = currency(me()->credit) )
+            <div class="price">
+              <label>{{ trans("dashboard.buy.credit") }}</label>
+              <span>{!! $credit > 0 ? sprintf("%s <small>%s</small>"  , number_format($credit['currency']) , $credit['type'] ) : null !!}</span>
+            </div>
+          </div>
+        </div>
         <!-- User Menu -->
         <div class="header-widget">
-
           <!-- Messages -->
           <div class="header-notifications user-menu">
             <div class="header-notifications-trigger">
@@ -56,14 +53,11 @@
 
             </div>
           </div>
-
         </div>
         <!-- User Menu / End -->
       </div>
       <!-- left Side Content / End -->
-
     </div>
   </div>
   <!-- Header / End -->
-
 </header>
