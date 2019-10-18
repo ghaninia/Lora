@@ -40309,7 +40309,7 @@ jQuery('.amount').each(function () {
       max = input.attr('max');
   step = input.attr('step') == undefined ? 1 : input.attr('step');
   btnUp.click(function () {
-    var oldValue = parseFloat(input.val());
+    var oldValue = parseFloat(input.val()) || 0;
 
     if (oldValue >= max) {
       var newVal = oldValue;

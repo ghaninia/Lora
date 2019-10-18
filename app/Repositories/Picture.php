@@ -28,8 +28,8 @@ class Picture
 
                 if(in_array("thumb" , $size )){
                     $resize["thumb"] = [
-                        "h" => config("dash.thumb_height") ,
-                        "w"  => config("dash.thumb_width")
+                        "h" => config("dashboard.thumb_height") ,
+                        "w"  => config("dashboard.thumb_width")
                     ];
                     Image::make($picture)->resize($resize["thumb"]["w"] , $resize["thumb"]["h"] )->save($fileName["thumb"]) ;
 

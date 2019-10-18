@@ -99,6 +99,19 @@
                         @endaccess
                     </ul>
                     @endaccess
+
+                    @access(["option" ] , "OR")
+                    <ul data-submenu-title="{{ trans("dashboard.sidebar.option.text") }}">
+                        @access("option")
+                        <li {{ Hightlight( ['dashboard.option.index'] ) }}>
+                            <a href="{{ route('dashboard.option.index') }}">
+                                <i class="icon-material-outline-settings"></i>
+                                <span>{{ trans('dashboard.sidebar.option.text') }}</span>
+                            </a>
+                        </li>
+                        @endaccess
+                    </ul>
+                    @endaccess
                 </div>
             </div>
             <!-- Navigation / End -->

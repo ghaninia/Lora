@@ -62,7 +62,7 @@ class FactorController extends Controller
             ->leftjoin('discounts', 'discount_id', '=', 'discounts.id')
             ->with("transaction.log" , 'user' , 'discount')
             ->orderBy( $request->input('orderBy' , 'created_at') , $request->input('order' , 'desc') )
-            ->paginate( config('dashboard.paginate_size') ) ;
+            ->paginate( option("paginate_size" , config('dash.paginate_size') ) ) ;
 
         $information = [
             'title' => trans('dashboard.factor.payment') ,

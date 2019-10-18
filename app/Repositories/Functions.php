@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\Option;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Repositories\Picture;
@@ -362,14 +364,7 @@ function stepCurrency(){
         case "toman"  :
             $step = 1000 ;
             break ;
-        case "thousandtoman"  :
-            $step = 1 ;
-            break ;
-        case "thousandrial"  :
-            $step = 10 ;
-            break ;
     }
-
     return $step ;
 }
 
@@ -395,4 +390,87 @@ function statusTransaction($status)
         case "INIT" :
             return trans('dashboard.status.init') ;
     }
+}
+/*** option ***/
+function option($key , $default = null ){
+    return Option::get($key, $default) ;
+}
+/*** get logo ***/
+function logo( $size = "thumb" ){
+    $picture = Option::get("site_logo") ;
+    if( !! $picture ){
+        $picture = json_decode($picture , true ) ;
+        return asset($picture[$size]) ;
+    }
+
+    return asset( config("dashboard.perview") ) ;
+}
+/*** get favicon ***/
+function favicon( $size = "thumb" ){
+    $picture = Option::get("site_favicon") ;
+    if( !! $picture )
+        return asset( $picture ) ;
+    return asset( config("dashboard.perview") ) ;
+}
+/*** preview not image ***/
+function preview( $size = "thumb" ){
+    $picture = Option::get("site_perview") ;
+    if( !! $picture ){
+        $picture = json_decode($picture , true ) ;
+        return asset($picture[$size]) ;
+    }
+
+    return asset( config("dashboard.perview") ) ;
+}
+/*** keywords site ***/
+function keywords(){
+    return json_decode(option("keywords"))  ?? config("dash.keywords");
+}
+/*
+* $name = مقدار درخواست index می باشد به صورت قراردادی هر درخواست رو بر اساس index بررسی میکنم
+* $createClass = مقدار بولین دریافت میکند ایا کلاس بسازد یا خیر
+* $activeCode = درصورتی گه میخواهیم متن بازگشتی active را تغییر بدهیم باید به این مقدار استرینگ بدهیم
+* $ifNotExistsActving = در صورتی که درخواست ما درست نبود شما ACTIVE کن
+* $boolean = در صورتی که ما میخواهیم بولین برگرداند میتوانیم از این استفاده نماییم
+*/
+function requested($name , $createClass = false , $ifNotExistsActving = false , $boolean = false ,  $activeCode = null   )
+{
+    $request = request() ;
+    if(is_null($activeCode))
+        $activeCode = "active" ;
+
+    if($request->has("index")){
+        $index = $request->input("index") ;
+        if( is_string($index) && is_string($name) )
+        {
+            if( $index == $name)
+            {
+                if($boolean == true )
+                    return true ;
+
+                if( $createClass == true ){
+                    return " class={$activeCode}" ;
+                }else{
+                    return " {$activeCode} " ;
+                }
+            }
+        }
+        if($boolean == true )
+            return false ;
+        return ;
+    }
+
+    if($ifNotExistsActving)
+    {
+        if($boolean == true )
+            return true ;
+        if( $createClass == true ){
+            return " class={$activeCode}" ;
+        }else{
+            return " {$activeCode} " ;
+        }
+    }
+    if($boolean == true )
+        return false  ;
+    return  ;
 }

@@ -55,4 +55,8 @@ Route::prefix("dashboard")->namespace('\\Dashboard\\')->middleware(["auth:user" 
 
     //discount
     Route::resource("discount" , 'DiscountController') ;
+
+    Route::prefix("option")->name("option.")->group(function (){
+        Route::resource("/" , "OptionController" , ["only" => ["index" , "store"]])->middleware("access:option") ;
+    });
 });

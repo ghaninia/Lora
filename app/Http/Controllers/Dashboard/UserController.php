@@ -49,7 +49,8 @@ class UserController extends Controller
                 ['credit' , '>=' , changeCurrency($credit[0] , 'rial')] ,
                 ['credit' , '<=' , changeCurrency($credit[1] , 'rial')]
             ]) ;
-        })->paginate( config('dashboard.paginate_size') ) ;
+        })
+            ->paginate( option("paginate_size" , config('dash.paginate_size') ) ) ;
 
         $rangeCreait = User::select([
             DB::raw("MIN(credit) as min") ,

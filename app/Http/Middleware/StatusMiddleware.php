@@ -13,7 +13,7 @@ class StatusMiddleware
             if(!$request->user()->status)
             {
                 Auth::guard($guard)->logout() ;
-                return RepMessage(trans('dash.messages.errors.status') , false , 'login');
+                return RepMessage(trans('dashboard.messages.errors.status') , false , 'login');
             }
             return $next($request);
         }

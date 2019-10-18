@@ -4802,7 +4802,7 @@ input:-webkit-autofill:active {
 }
 
 .full-page-content-inner .grid-layout {
-    width: calc(100%+30px)
+    width: calc(100% + 30px)
 }
 
 .full-page-content-inner .grid-layout .job-listing {
@@ -20989,7 +20989,31 @@ section.work-process .section-heading{
     font-size: 10px;
 }
 
+.dashboard-box .toolbar{
+    display :block ;
+    height : auto ;
+    overflow : hidden ;
+    border-bottom: 1px rgba(0,0,0,.1) solid ;
+}
 
+.dashboard-box .toolbar .toolbar__nav{
+    display: flex;
+}
+.dashboard-box .toolbar .toolbar__nav a{
+    padding: 10px;
+    color: #eee;
+    font-size: 15px;
+    flex: 1;
+    text-align: center;
+    border-right: 1px #eee solid;
+}
+.dashboard-box .toolbar .toolbar__nav a:nth-last-of-type(1){
+    border :none ;
+}
+.dashboard-box .toolbar .toolbar__nav a.active {
+    background: #eee;
+    color: rgba(0,0,0,.6)!important;
+}
 .datepicker-jalali {
     border-radius: 3px;
      border: 1px solid #e0e0e0;

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ isset($information['title']) ? $information['title'] : config('dashboard.title')  }}</title>
-    <meta type="description" content="{{ isset($information['desc']) ? $information['desc'] : config('dashboard.desc')  }}">
+    <title>{{ isset($information['title']) ? $information['title'] : option("site_title" , config('dashboard.title') )  }}</title>
+    <meta type="description" content="{{ isset($information['desc']) ? $information['desc'] : option("site_description" , config('dashboard.desc') ) }}">
     @access("ticket")
-    <meta name="ticket-url" content="{{ route('dashboard.ticket.index') }}">
+        <meta name="ticket-url" content="{{ route('dashboard.ticket.index') }}">
     @endaccess
     <link rel="stylesheet" href="{{ asset('assets/dashboard/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset(sprintf('assets/dashboard/css/colors/%s.css' , theme() )) }}">

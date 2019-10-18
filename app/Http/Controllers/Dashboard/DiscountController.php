@@ -23,7 +23,7 @@ class DiscountController extends Controller
             })
             ->select(["*" , DB::raw("CURRENT_TIMESTAMP() - discounts.expired_at as difference_date") ])
             ->orderBy('difference_date')
-            ->paginate( config('dash.paginate_size') ) ;
+            ->paginate( option("paginate_size" , config('dash.paginate_size') ) ) ;
 
         $information = [
             'title' => trans('dashboard.discounts.label') ,
@@ -82,7 +82,7 @@ class DiscountController extends Controller
                 $query->where( PeriodDate(false , 'payments.created_at') ) ;
             })
             ->orderBy( $request->input('orderBy' , 'created_at') , $request->input('order' , 'desc') )
-            ->paginate( config('dashboard.paginate_size') ) ;
+            ->paginate( option("paginate_size" , config('dash.paginate_size') ) ) ;
 
         return view('dashboard.discount.show' , compact('discount' , 'information' , 'payments') ) ;
     }
