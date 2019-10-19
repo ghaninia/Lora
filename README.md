@@ -44,6 +44,5 @@
 <b>پسورد </b>: secret
 </p>
 
+برای مشاهده جزئیات بیشتر به <a href="http://ghaninia.ir/posts/17">صفحه رسمی لورا</a> وارد شوید .
 
- دمو ها : [مدیریت کاربران](https://ghaninia.ir/wp-content/uploads/download-1.png) , [پرمیشن ها](https://ghaninia.ir/wp-content/uploads/download-2.png) , [نقش ها](https://ghaninia.ir/wp-content/uploads/download-3.png) , [ساخت یک تیکت](https://ghaninia.ir/wp-content/uploads/download-4.png) , [مشاهده جزییات تیکت](https://ghaninia.ir/wp-content/uploads/download-5.png) , [فاکتور ها](https://ghaninia.ir/wp-content/uploads/download-6.png) , [شارژ کیف پول](https://ghaninia.ir/wp-content/uploads/download-7.png)
-</div>
