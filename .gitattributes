@@ -2,3 +2,5 @@
 * text=auto
 *.js linguist-detectable=true
 *.php linguist-detectable=true
+* linguist-vendored
+*.js linguist-vendored=false
