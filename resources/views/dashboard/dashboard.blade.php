@@ -19,8 +19,8 @@
                 @access('user')
                 <div class="fun-fact" data-fun-fact-color="#36bd78">
                     <div class="fun-fact-text">
-                        <span>{{ $data['user']['text'] }}</span>
-                        <h4>{{ $data['user']['count'] }}</h4>
+                        <span>{{ trans('dashboard.main.user.text') }}</span>
+                        <h4>{{ $users_count }}</h4>
                     </div>
                     <div class="fun-fact-icon"><i class="icon-material-outline-group"></i></div>
                 </div>
@@ -31,8 +31,8 @@
                 <div class="fun-fact" data-fun-fact-color="#2a41e6">
                     <div class="fun-fact-text">
                         <div class="fun-fact-text">
-                            <span>{{ $data['permission']['text'] }}</span>
-                            <h4>{{ $data['permission']['count'] }}</h4>
+                            <span>{{ trans('dashboard.main.permission.text') }}</span>
+                            <h4>{{ $permissions_count }}</h4>
                         </div>
                     </div>
                     <div class="fun-fact-icon"><i class="icon-material-outline-extension"></i></div>
