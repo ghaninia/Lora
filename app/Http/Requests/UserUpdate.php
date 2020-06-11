@@ -6,7 +6,7 @@ use Illuminate\Validation\Rule;
 use App\Rules\UserNameRule;
 use App\Rules\MobileRule;
 
-class userUpdate extends FormRequest
+class UserUpdate extends FormRequest
 {
     public function authorize()
     {

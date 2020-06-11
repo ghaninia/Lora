@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Rules\MobileRule;
 
-class userStore extends FormRequest
+class UserStore extends FormRequest
 {
 
     public function authorize()
