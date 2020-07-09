@@ -7,7 +7,7 @@ class Role extends Model
     protected $table = "roles" ;
     public $timestamps = false ;
     protected $fillable = [
-    	"name" , 
+    	"name" ,
     	"description" ,
         'picture' ,
         "default"
@@ -30,6 +30,7 @@ class Role extends Model
     // event before delete role
     public static function boot()
     {
+        parent::boot();
         static::deleting(function ($query){
             $query->permissions()->detach() ;
         });

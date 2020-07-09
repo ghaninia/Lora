@@ -4,6 +4,10 @@ use App\Models\Option;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Repositories\Picture;
+
+
+use Illuminate\Support\Str;
+
 /**************/
 /*** avatar ***/
 /**************/
@@ -473,4 +477,26 @@ function requested($name , $createClass = false , $ifNotExistsActving = false , 
     if($boolean == true )
         return false  ;
     return  ;
+}
+
+if( !function_exists("array_random") ){
+    function array_random( array $array ){
+        return \Illuminate\Support\Arr::random($array) ;
+    }
+}
+if (! function_exists('camel_case')) {
+    function camel_case($value)
+    {
+        return Str::camel($value);
+    }
+}
+if( !function_exists("str_random") ){
+    function str_random( int $length ) {
+        return Str::random( $length ) ;
+    }
+}
+if( !function_exists("str_slug") ){
+    function str_slug( string $name ) {
+        return Str::slug( $name ) ;
+    }
 }

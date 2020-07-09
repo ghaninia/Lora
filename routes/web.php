@@ -22,7 +22,7 @@ Route::namespace("Auth\\")->group(function (){
 });
 
 // Dashboard Routes...
-Route::prefix("dashboard")->namespace('\\Dashboard\\')->middleware(["auth:user" , "status:user"])->name("dashboard.")->group(function (){
+Route::prefix("dashboard")->namespace('Dashboard')->middleware(["auth:user" , "status:user"])->name("dashboard.")->group(function (){
 
     Route::get("/" , 'DashboardController@index' )->name("main") ;
     Route::resource("profile" , "ProfileController")->only(['index' , 'store']);

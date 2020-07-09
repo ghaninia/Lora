@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\MobileRule;
 use Illuminate\Validation\Rule;
 
-class userIndex extends FormRequest
+class UserIndex extends FormRequest
 {
 
     public function authorize()

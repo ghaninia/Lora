@@ -2,7 +2,8 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use Throwable;
+
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
@@ -23,13 +24,13 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
 
 
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         if ($exception instanceof TokenMismatchException)
             return redirect()->route('login')->with(['message' => 'توکن شما مسدود شده است.' ]);

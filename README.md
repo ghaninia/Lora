@@ -1,48 +1,79 @@
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<div align="right" dir="rtl">
-<h1>لورا چیست ؟</h1>
-<p>
-لورا یک مدیریت کوچک و فشرده شده است که با لاراول نوشته شده است از فواید استفاده از لورا میتونه چی باشه ؟ 
-
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
- 1. <b>😎 مدیریت کاربران </b>: کاربر بسازید و مدیریتش کنید 
- 2. <b>👑مدیریت نقش ها </b>: نقش های جدید بسازید و ویژگی های دلخواهتون رو بهش اضافه کنید
- 3. <b>💸 کوپن تخفیف</b>: شما میتوانید کوپن تخفیف به مناسبت های مختلف بسازید و انتخاب کنید چند بار استفاده بشه و یا چ زمانی منقضی بشه
- 4. <b>💰 مدیریت تراکنش ها </b>: پول های که تو سیستمتون رد و بدل شده رو مدیریت کنید چ کسی چقدر پرداخت و کی پرداخت کرده 
- 5. <b>💳 شارژ کیف پول </b>: کاربران یه کیف پولی تو سیستم دارند میتونن شارژش کنن و ازش استفاده کنن
- 6. <b>🥘 خصوصیت حرفه ای </b>: شما تو لورا میتونید آشپز خودتون باشید خصوصیت درست کنید و تو نقش ها ازش استفاده کنید
- 7. <b>🎫 تیکتینگ </b>: به نقش ها و کاربران مختلف میشه به آسونی تیکت زد  و یا به تیکت های گروهی که میاد جواب بدید
- 8. <b>😼 پروفایل شخصی </b>: میتونید پروفایل شخصی خودتون رو ویرایش کنید یا عکس پروفایل و گذرواژه خودتون رو تغییر بدید
- 9. <b>🧧 رنگ بندی مختلف </b> :  لورا از نظر ظاهری هم با رنگ های متنوع عرضه شده و بسیار کاربرپسند هستش 
- 10. <b>⚙️تنظیمات </b> : برای آسانی کار با سیستم لورا تنظیمات نیز اضافه گردید. 
+## About Laravel
 
-<h5>آیا توسعه لورا راحته ؟؟</h5>
-<p>
-شما میتوانید به راحتی لورا رو توسعه بدهید خوانایی و استفاده به موقع از اجزایی لاراول شما را مجاب به استفاده لورا در پروژه های خود میکند 
-شما در این سیستم تمام وسایل لازم رو برای ساخت پروژه جدیدتون دارید و نیاز به دوباره نویسی سیستم نیست 
-لورا  از پکیج های خوبی مثل  استفاده کرده 
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
- - <a href="https://github.com/larabook/gateway">لارابوک</a>
- - <a href="https://github.com/hekmatinasser/verta">ورتا</a>
- - <a href="http://image.intervention.io/">Image intervation</a>
-</p> 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-<h1>چطور استفاده کنیم ؟؟</h1>
-<p>
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
- - ابتدا باید مخزن را در کامپیوتر خودتون دانلود کنید پس در کامند لاین : 
- - `git clone https://github.com/ghaninia/Lora.git`
- - سپس در مسیر پوشه نصبی باید `composer install` را تایپ کنید
- - سپس به فایل .env رفته و کانفیگ سرور و دیتابیس خودتون رو انجام بدهید 
- - بعد در کامند لاین `php artisan fresh` جداول دیتابیس و داده های فیک برای شما ساخته میشود
- -  بعد سرور خود را اجرا کنید `php artisan serve` 
- - به مسیر `127.0.0.1:8000` بروید  
-<br />
-<b>نام کاربری</b>: test  
-<br />
-<b>پسورد </b>: secret
-</p>
+## Learning Laravel
 
-برای مشاهده جزئیات بیشتر به <a href="http://ghaninia.ir/posts/17">صفحه رسمی لورا</a> وارد شوید .
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
+- [Abdel Elrafa](https://abdelelrafa.com)
+- [Hyper Host](https://hyper.host)
+- [Appoly](https://www.appoly.co.uk)
+- [OP.GG](https://op.gg)
+- [云软科技](http://www.yunruan.ltd/)
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
