@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Artisan;
 
 class Fresh extends Command
 {
-    protected $signature = 'fresh';
-    protected $description = 'fresh Database , remove Cache and insert FAKE data';
+    protected $signature = 'reinstall';
+    protected $description = 'install again !';
 
     public function __construct()
     {

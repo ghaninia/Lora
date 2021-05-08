@@ -9,49 +9,49 @@
             <form action="{{ route('dashboard.user.index') }}">
                 <!-- username -->
                 <div class="sidebar-widget">
-                    <h3>{{ trans('dashboard.profile.username') }}</h3>
+                    <h3>{{ trans('lora.profile.username') }}</h3>
                     <div class="input-with-icon">
                         <div id="autocomplete-container">
-                            <input autocomplete="off" value="{{ Request::input('username') }}" id="autocomplete-input" name="username" placeholder="{{ trans('dashboard.profile.username') }}">
+                            <input autocomplete="off" value="{{ Request::input('username') }}" id="autocomplete-input" name="username" placeholder="{{ trans('lora.profile.username') }}">
                         </div>
                         <i class="icon-material-outline-account-circle"></i>
                     </div>
                 </div>
                 <!-- mobile -->
                 <div class="sidebar-widget">
-                    <h3>{{ trans('dashboard.profile.mobile') }}</h3>
+                    <h3>{{ trans('lora.profile.mobile') }}</h3>
                     <div class="input-with-icon">
                         <div id="autocomplete-container">
-                            <input autocomplete="off" value="{{ Request::input('mobile') }}" id="autocomplete-input" name="mobile" placeholder="{{ trans('dashboard.profile.mobile') }}">
+                            <input autocomplete="off" value="{{ Request::input('mobile') }}" id="autocomplete-input" name="mobile" placeholder="{{ trans('lora.profile.mobile') }}">
                         </div>
                         <i class="icon-feather-phone"></i>
                     </div>
                 </div>
                 <!-- email -->
                 <div class="sidebar-widget">
-                    <h3>{{ trans('dashboard.profile.email') }}</h3>
+                    <h3>{{ trans('lora.profile.email') }}</h3>
                     <div class="input-with-icon">
                         <div id="autocomplete-container">
-                            <input autocomplete="off" value="{{ Request::input('email') }}" id="autocomplete-input" type="email" name="email" placeholder="{{ trans('dashboard.profile.email') }}">
+                            <input autocomplete="off" value="{{ Request::input('email') }}" id="autocomplete-input" type="email" name="email" placeholder="{{ trans('lora.profile.email') }}">
                         </div>
                         <i class="icon-material-baseline-mail-outline"></i>
                     </div>
                 </div>
                 <!-- gender -->
                 <div class="sidebar-widget">
-                    <h3>{{ trans('dashboard.profile.gender') }}</h3>
+                    <h3>{{ trans('lora.profile.gender') }}</h3>
                     <select class="selectpicker" multiple name="genders[]">
                         @foreach(['male' => 'mdi-male-alt' , 'female' => 'mdi-female' ] as $gender => $icon )
                             <option
                                 {{ in_array($gender , Request::input("genders" ,[]) ) ? 'selected' : '' }}
                                 value="{{ $gender }}"
-                                data-icon="icon-line-awesome-{{ $gender }}">{{ trans("dashboard.profile.genders.$gender") }}</option>
+                                data-icon="icon-line-awesome-{{ $gender }}">{{ trans("lora.profile.genders.$gender") }}</option>
                         @endforeach
                     </select>
                 </div>
                 <!-- roles -->
                 <div class="sidebar-widget">
-                    <h3>{{ trans('dashboard.sidebar.roles') }}</h3>
+                    <h3>{{ trans('lora.sidebar.roles') }}</h3>
                     <select class="selectpicker" name="roles[]" multiple>
                         @foreach($roles as $role)
                             <option
@@ -68,7 +68,7 @@
                         $max = currency($rangeCreait->max) ;
                     @endphp
                     <div class="submit-field margin-top-20">
-                        <h5>{{ trans('dashboard.table.credit') }}</h5>
+                        <h5>{{ trans('lora.table.credit') }}</h5>
                         <input
                             name="credit"
                             class="range-slider"
@@ -85,7 +85,7 @@
                 <div class="clearfix"></div>
                 <hr>
                 <button class=" button button-sliding-icon">
-                    {{ trans('dashboard.items.filter') }}
+                    {{ trans('lora.items.filter') }}
                     <i class="icon-material-outline-arrow-right-alt"></i>
                 </button>
             </form>
@@ -102,14 +102,14 @@
                     <label class="switch">
                         <input type="checkbox" name="status" {{ \Request::input('status') == 1 ? "checked" : "" }} value="1" onchange="this.form.submit()">
                         <span class="switch-button"></span>
-                        <span class="switch-text">{{ trans('dashboard.profile.just_status') }}</span>
+                        <span class="switch-text">{{ trans('lora.profile.just_status') }}</span>
                     </label>
                 </div>
                 <div class="sort-by">
-                    <span>{{ trans('dashboard.items.sortby') }}:</span>
+                    <span>{{ trans('lora.items.sortby') }}:</span>
                     <select name="orderBy" class="selectpicker hide-tick" onchange="this.form.submit()">
                         @foreach([ 'id' ] as $key )
-                            <option value="{{ $key }}" {{ \Request::input('orderBy') == $key ? "selected" : "" }}>{{ trans("dashboard.items.{$key}") }}</option>
+                            <option value="{{ $key }}" {{ \Request::input('orderBy') == $key ? "selected" : "" }}>{{ trans("lora.items.{$key}") }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -128,14 +128,14 @@
                             <span
                                 role="swal"
                                 href="#"
-                                data-message="{{ trans('dashboard.questions.user_delete') }}"
+                                data-message="{{ trans('lora.questions.user_delete') }}"
                                 data-url="{{ route('dashboard.user.destroy' , $user->username ) }}"
                                 data-action="delete"
                                 class="delete-icon deleted"
-                                title="{{ trans('dashboard.users.delete.text') }}"
+                                title="{{ trans('lora.users.delete.text') }}"
                                 data-tippy-placement="top">
                             </span>
-                            <a title="{{ trans('dashboard.users.edit.text') }}"
+                            <a title="{{ trans('lora.users.edit.text') }}"
                                data-tippy-placement="top"
                                href="{{ route('dashboard.user.edit' , $user->username) }}" class="edit-icon"></a>
 
@@ -158,13 +158,13 @@
                                         <strong><i class="icon-material-outline-business-center"></i></strong>
                                     </li>
                                 @endif
-                                <li title="{{ trans('dashboard.items.created_at') }} : {{ CreateTime($user) }}" data-tippy-placement="top" data-tippy-theme="light">
+                                <li title="{{ trans('lora.items.created_at') }} : {{ CreateTime($user) }}" data-tippy-placement="top" data-tippy-theme="light">
                                     <strong><i class="icon-material-outline-access-time"></i></strong>
                                 </li>
-                                <li title="{{ trans('dashboard.profile.email') }} : {{ $user->email }}" data-tippy-placement="top" data-tippy-theme="light">
+                                <li title="{{ trans('lora.profile.email') }} : {{ $user->email }}" data-tippy-placement="top" data-tippy-theme="light">
                                     <strong><i class="icon-material-outline-email"></i></strong>
                                 </li>
-                                <li title="{{ trans('dashboard.profile.mobile') }} : {{ $user->mobile }}" data-tippy-placement="top" data-tippy-theme="light">
+                                <li title="{{ trans('lora.profile.mobile') }} : {{ $user->mobile }}" data-tippy-placement="top" data-tippy-theme="light">
                                     <strong><i class="icon-feather-phone"></i></strong>
                                 </li>
                             </ul>
@@ -178,7 +178,7 @@
         {{ $users->appends($appends)->links('dashboard.layouts.paginate') }}
     </div>
 </div>
-<a class="btn--fixed btn--action" href="{{ route('dashboard.user.create') }}" title="{{ trans('dashboard.items.create_new') }}" data-tippy-placement="right">
+<a class="btn--fixed btn--action" href="{{ route('dashboard.user.create') }}" title="{{ trans('lora.items.create_new') }}" data-tippy-placement="right">
     <span class="icon-feather-plus"></span>
 </a>
 @stop

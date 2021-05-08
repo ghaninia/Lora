@@ -171,7 +171,7 @@ class Ticket extends Model
     }
 
 
-    public function ScopeNotRead( $query , $guard = 'user')
+    public function ScopeNotRead( $query , $guard = 'web')
     {
         $user = Auth::guard($guard)->user() ;
         $ticketNotIn = Ticket::where("from_id" , $user->id)->where('from_type' , $guard)->where('seen',false)->pluck('id')->toArray() ;

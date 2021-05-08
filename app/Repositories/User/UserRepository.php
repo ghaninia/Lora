@@ -2,6 +2,7 @@
 
 namespace App\Repositories\User;
 
+use App\Models\User;
 use NamTran\LaravelMakeRepositoryService\Repository\BaseRepository;
 use App\Repositories\User\UserRepositoryInterface;
 
@@ -14,6 +15,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
      */
     public function model()
     {
-        //return;
+        return User::class ;
     }
+    
 }

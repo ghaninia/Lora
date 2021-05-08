@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ isset($information['title']) ? $information['title'] : option("site_title" , config('dashboard.title') )  }}</title>
-    <meta type="description" content="{{ isset($information['desc']) ? $information['desc'] : option("site_description" , config('dashboard.desc') ) }}">
+    <title>{{ isset($information['title']) ? $information['title'] : option("site_title" , config('lora.title') )  }}</title>
+    <meta type="description" content="{{ isset($information['desc']) ? $information['desc'] : option("site_description" , config('lora.desc') ) }}">
     @access("ticket")
         <meta name="ticket-url" content="{{ route('dashboard.ticket.index') }}">
     @endaccess
@@ -47,7 +47,7 @@
                                     <nav id="breadcrumbs" class="dark">
                                         <ul class="breadcrumb">
                                             <li class="breadcrumb-item">
-                                                <a href="{{ route('dashboard.main') }}">{{ trans('dashboard.sidebar.main_menu') }}</a>
+                                                <a href="{{ route('dashboard.main') }}">{{ trans('lora.sidebar.main_menu') }}</a>
                                             </li>
                                             @foreach($information['breadcrumb'] as $name => $link )
                                                 <li class="breadcrumb-item">

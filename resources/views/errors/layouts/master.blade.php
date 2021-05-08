@@ -39,7 +39,7 @@
         </div>
         <footer>
             <ul>
-                <li><a href="{{ route('dashboard.main') }}">{{ trans('dashboard.sidebar.main_menu') }}</a></li>
+                <li><a href="{{ route('dashboard.main') }}">{{ trans('lora.sidebar.main_menu') }}</a></li>
                 <li><a href="{{ route('login') }}">ورود </a></li>
                 <li><a href="{{ route('password.request') }}">بازیابی گذرواژه</a></li>
             </ul>

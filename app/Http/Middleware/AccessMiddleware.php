@@ -23,6 +23,6 @@ class AccessMiddleware
                 return $next($request);
             }
         }
-        return redirect()->route("dashboard.main")->with(['status' => false , 'message' => trans("dashboard.messages.errors.access") ]);
+        return redirect()->route("dashboard.main")->with(['status' => false , 'message' => trans("lora.messages.errors.access") ]);
     }
 }

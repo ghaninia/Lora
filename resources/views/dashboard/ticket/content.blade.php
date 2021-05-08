@@ -37,16 +37,16 @@
                             </div>
                             @if(!! $message->subject && !! $message->priority )
                                 <ul class="subjects">
-                                    <li><strong>{{ trans("dashboard.tickets.priority.text") }} :</strong>{{ trans("dashboard.tickets.priority.{$message->priority}") }}</li>
-                                    <li><strong>{{ trans("dashboard.items.status") }} :</strong>
+                                    <li><strong>{{ trans("lora.tickets.priority.text") }} :</strong>{{ trans("lora.tickets.priority.{$message->priority}") }}</li>
+                                    <li><strong>{{ trans("lora.items.status") }} :</strong>
                                         @if($message->status == 'enable')
-                                            {{  trans("dashboard.status.true") }}
+                                            {{  trans("lora.status.true") }}
                                         @else
-                                            {{  trans("dashboard.status.false") }}
+                                            {{  trans("lora.status.false") }}
                                         @endif
                                     </li>
-                                    <li><strong>{{ trans('dashboard.tickets.subject') }} :</strong>{{ $message->subject  }}</li>
-                                    <li><strong>{{ trans('dashboard.tickets.traking_code') }} :</strong>{{ $trakingCode }}</li>
+                                    <li><strong>{{ trans('lora.tickets.subject') }} :</strong>{{ $message->subject  }}</li>
+                                    <li><strong>{{ trans('lora.tickets.traking_code') }} :</strong>{{ $trakingCode }}</li>
                                 </ul>
                             @endif
                             <p>
@@ -72,7 +72,7 @@
     <form method="POST" class="message-reply replayMessage" action="{{ route('dashboard.ticket.replay') }}">
         @csrf
         <input type="hidden" name="tracking_code" value="{{ $trakingCode }}">
-        <textarea required cols="1" id="message" name="message" rows="1" placeholder="{{ trans('dashboard.tickets.replay') }}" data-autoresize></textarea>
-        <button class="button ripple-effect">{{ trans('dashboard.tickets.send') }}</button>
+        <textarea required cols="1" id="message" name="message" rows="1" placeholder="{{ trans('lora.tickets.replay') }}" data-autoresize></textarea>
+        <button class="button ripple-effect">{{ trans('lora.tickets.send') }}</button>
     </form>
 @endif

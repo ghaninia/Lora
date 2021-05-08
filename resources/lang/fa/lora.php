@@ -47,7 +47,7 @@ return [
 
     'profile' => [
         'name' => 'نام' ,
-        'family'  => 'نام خانوادگی', 
+        'family'  => 'نام خانوادگی',
         'firstname' => 'نام' ,
         'lastname'  => 'نام خانوادگی' ,
         'username' => 'نام کاربری' ,

@@ -9,12 +9,12 @@
                 <div class="form-group">
 
                     <div class="section-headline margin-top-25 margin-bottom-12">
-                        @php($currecy = config('dashboard.currency') )
-                        <h3>{{ trans('dashboard.credit.price') }} <b>({{ trans("dashboard.currency.{$currecy}") }})</b></h3>
+                        @php($currecy = config('lora.currency') )
+                        <h3>{{ trans('lora.credit.price') }} <b>({{ trans("lora.currency.{$currecy}") }})</b></h3>
                     </div>
 
-                    @php( $min = currency(config('dashboard.min_credit')) )
-                    @php( $max = currency(config('dashboard.max_credit')) )
+                    @php( $min = currency(config('lora.min_credit')) )
+                    @php( $max = currency(config('lora.max_credit')) )
 
                     <div class="amount">
                         <input
@@ -26,7 +26,7 @@
                             autocomplete="off"
                             name="amount"
                             required
-                            placeholder="{{ trans('dashboard.credit.placeholder') }}">
+                            placeholder="{{ trans('lora.credit.placeholder') }}">
                     </div>
 
                     <div class="help-block with-errors"></div>
@@ -43,7 +43,7 @@
                     <div class="payment-tab @if( old('haveDiscount' , 0) == 0 ) payment-tab-active @endif">
                         <div class="payment-tab-trigger">
                             <input @if( old('haveDiscount' , 0) == 0 ) checked @endif id="paypal" name="haveDiscount" type="radio" value="0">
-                            <label for="paypal">{{ trans('dashboard.credit.ihavenot_discount') }}</label>
+                            <label for="paypal">{{ trans('lora.credit.ihavenot_discount') }}</label>
                         </div>
                     </div>
 
@@ -51,14 +51,14 @@
 
                         <div class="payment-tab-trigger">
                             <input  @if( old('haveDiscount') == 1 ) checked @endif type="radio" name="haveDiscount" id="creditCart" value="1">
-                            <label for="creditCart">{{ trans('dashboard.credit.ihave_discount') }}</label>
+                            <label for="creditCart">{{ trans('lora.credit.ihave_discount') }}</label>
                         </div>
 
                         <div class="payment-tab-content">
                             <div class="row payment-form-row">
                                 <div class="col-md-12">
                                     <div class="card-label form-group">
-                                        <input class="form-controll" autocomplete="off" type="text" disabled id="nameOnCard" name="discount" placeholder="{{ trans('dashboard.credit.enterdiscount') }}">
+                                        <input class="form-controll" autocomplete="off" type="text" disabled id="nameOnCard" name="discount" placeholder="{{ trans('lora.credit.enterdiscount') }}">
                                         <div class="help-block with-errors"></div>
                                         @if($errors->has("discount"))
                                             <small class="dashboard-status-button red">{{ $errors->first("discount") }}</small>
@@ -73,7 +73,7 @@
                 </div>
 
                 <!-- Payment Methods Accordion / End -->
-                <button class="button big ripple-effect margin-top-40 margin-bottom-65">{{ trans('dashboard.credit.Paynow') }}</button>
+                <button class="button big ripple-effect margin-top-40 margin-bottom-65">{{ trans('lora.credit.Paynow') }}</button>
 
             </form>
 

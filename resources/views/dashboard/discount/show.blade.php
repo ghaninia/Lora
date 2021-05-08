@@ -11,23 +11,23 @@
                 <!-- Headline -->
                 <div class="headline">
                     <h3>
-                        {{ trans('dashboard.discounts.edit') }}
+                        {{ trans('lora.discounts.edit') }}
                     </h3>
                 </div>
                 <div class="content with-padding">
 
                     <div class="submit-field">
-                        <h5>{{ trans('dashboard.items.description') }}</h5>
-                        <input name="description" class="with-border" placeholder="{{ trans('dashboard.items.description') }}" value="{{ $discount->description }}">
+                        <h5>{{ trans('lora.items.description') }}</h5>
+                        <input name="description" class="with-border" placeholder="{{ trans('lora.items.description') }}" value="{{ $discount->description }}">
                         @if($errors->has("description"))
                             <small class="dashboard-status-button red">{{ $errors->first("description") }}</small>
                         @endif
                     </div>
 
                     <div class="submit-field">
-                        <h5>{{ trans('dashboard.discounts.number_of_use') }}</h5>
+                        <h5>{{ trans('lora.discounts.number_of_use') }}</h5>
                         <div class="amount">
-                            <input name="number_of_use" type="number" min="1" step="1" class="with-border" placeholder="{{ trans('dashboard.discounts.number_of_use') }}" value="{{ $discount->number_of_use }}">
+                            <input name="number_of_use" type="number" min="1" step="1" class="with-border" placeholder="{{ trans('lora.discounts.number_of_use') }}" value="{{ $discount->number_of_use }}">
                         </div>
                         @if($errors->has("amount"))
                             <small class="dashboard-status-button red">{{ $errors->first("amount") }}</small>
@@ -35,10 +35,10 @@
                     </div>
 
                     <div class="submit-field">
-                        <h5>{{ trans('dashboard.discounts.code') }}</h5>
+                        <h5>{{ trans('lora.discounts.code') }}</h5>
                         <div class="code">
                             <div class="refresh"></div>
-                            <input readonly name="code" class="with-border" placeholder="{{ trans('dashboard.discounts.code') }}" value="{{ $discount->code }}">
+                            <input readonly name="code" class="with-border" placeholder="{{ trans('lora.discounts.code') }}" value="{{ $discount->code }}">
                         </div>
                         @if($errors->has("code"))
                             <small class="dashboard-status-button red">{{ $errors->first("code") }}</small>
@@ -49,7 +49,7 @@
                     <!--- Meghdar takhfif --->
                     <!----------------------->
                     <div class="submit-field">
-                        <h5>{{ trans('dashboard.discounts.label') }}</h5>
+                        <h5>{{ trans('lora.discounts.label') }}</h5>
 
                         <div class="payment">
 
@@ -60,13 +60,13 @@
                             <div class="payment-tab @if( $haveDiscount == 0 ) payment-tab-active @endif">
                                 <div class="payment-tab-trigger">
                                     <input @if( $haveDiscount == 0 ) checked @endif id="percent" name="haveAmount" type="radio" value="0">
-                                    <label for="percent">{{ trans('dashboard.discounts.percent') }}</label>
+                                    <label for="percent">{{ trans('lora.discounts.percent') }}</label>
                                 </div>
                                 <div class="payment-tab-content">
                                     <div class="row payment-form-row">
                                         <div class="col-md-12">
                                             <div class="card-label form-group">
-                                                <input class="form-controll" value="{{ $discount->percent ? $discount->percent : null }}" autocomplete="off" type="text" disabled id="nameOnCard" name="percent" placeholder="{{ trans('dashboard.discounts.percent_label') }}">
+                                                <input class="form-controll" value="{{ $discount->percent ? $discount->percent : null }}" autocomplete="off" type="text" disabled id="nameOnCard" name="percent" placeholder="{{ trans('lora.discounts.percent_label') }}">
                                                 <div class="help-block with-errors"></div>
                                                 @if($errors->has("percent"))
                                                     <small class="dashboard-status-button red">{{ $errors->first("percent") }}</small>
@@ -92,7 +92,7 @@
                                 <div class="payment-tab-trigger">
                                     <input  @if( $haveDiscount == 1 ) checked @endif type="radio" name="haveAmount" id="amount" value="1">
                                     <label for="amount">
-                                        {{ trans('dashboard.discounts.amount') }}
+                                        {{ trans('lora.discounts.amount') }}
                                         {{ isset($typeCurrency) ? sprintf("(%s)" , $typeCurrency ) : null  }}
                                     </label>
                                 </div>
@@ -101,7 +101,7 @@
                                     <div class="row payment-form-row">
                                         <div class="col-md-12">
                                             <div class="card-label form-group">
-                                                <input value="{{ $amount }}" class="form-controll" autocomplete="off" type="text" disabled id="nameOnCard" name="amount" placeholder="{{ trans('dashboard.discounts.amount_label') }}">
+                                                <input value="{{ $amount }}" class="form-controll" autocomplete="off" type="text" disabled id="nameOnCard" name="amount" placeholder="{{ trans('lora.discounts.amount_label') }}">
                                                 <div class="help-block with-errors"></div>
                                                 @if($errors->has("amount"))
                                                     <small class="dashboard-status-button red">{{ $errors->first("amount") }}</small>
@@ -119,7 +119,7 @@
                     <!-- end Meghdar takhfif --->
                     <!-------------------------->
                     <div class="submit-field">
-                        <h5>{{ trans('dashboard.discounts.expired_at') }}</h5>
+                        <h5>{{ trans('lora.discounts.expired_at') }}</h5>
                         <div class="calender">
                             <div class="body"></div>
                             <input readonly type="hidden" name="expired_at" value="{{ $discount->expired_at->datetime()->format("Y-m-d") }}">
@@ -130,7 +130,7 @@
                     </div>
 
                     <button class="button full-width margin-top-20">
-                        {{ trans('dashboard.discounts.edit_button') }}
+                        {{ trans('lora.discounts.edit_button') }}
                     </button>
 
                 </div>
@@ -151,7 +151,7 @@
             <div class="col-lg-6">
                 <div class="fun-fact" data-fun-fact-color="#36bd78">
                     <div class="fun-fact-text">
-                        <span>{{ trans('dashboard.discounts.number_of_use') }}</span>
+                        <span>{{ trans('lora.discounts.number_of_use') }}</span>
                         <h4>{{ $payments->total() }}</h4>
                     </div>
                     <div class="fun-fact-icon" style="background-color: rgba(54, 189, 120, 0.07);">
@@ -162,8 +162,8 @@
             <div class="col-lg-6">
                 <div class="fun-fact" data-fun-fact-color="#b81b7f">
                     <div class="fun-fact-text">
-                        <span>{{ trans('dashboard.items.status') }} :</span>
-                        <b>{{ trans("dashboard.status.{$discount->status}") }}</b>
+                        <span>{{ trans('lora.items.status') }} :</span>
+                        <b>{{ trans("lora.status.{$discount->status}") }}</b>
                     </div>
                     <div class="fun-fact-icon" style="background-color: rgba(184, 27, 127, 0.07);"><i class="icon-material-outline-business-center" style="color: rgb(184, 27, 127);"></i></div>
                 </div>
@@ -174,10 +174,10 @@
             <thead>
                 <tr>
                     @access('factor.payments')
-                    <th>{{ trans('dashboard.table.username') }} {{ SortBy('username') }}</th>
+                    <th>{{ trans('lora.table.username') }} {{ SortBy('username') }}</th>
                     @endaccess
-                    <th>{{ trans('dashboard.table.status') }}</th>
-                    <th>{{ trans('dashboard.table.price') }} {{ SortBy('amount') }}</th>
+                    <th>{{ trans('lora.table.status') }}</th>
+                    <th>{{ trans('lora.table.price') }} {{ SortBy('amount') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -200,7 +200,7 @@
                         <span class="status-pill green"></span>
                         @break
                         @endswitch
-                        <span>{{ trans("dashboard.status.payment.{$payment->status}") }}</span>
+                        <span>{{ trans("lora.status.payment.{$payment->status}") }}</span>
                     </td>
                     <td class="nowrap bolder">
                         @php( $currency = currency($payment->amount) )

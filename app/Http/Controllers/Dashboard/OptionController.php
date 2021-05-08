@@ -13,10 +13,10 @@ class OptionController extends Controller
     public function index()
     {
         $information = [
-            "title" => trans("dashboard.option.title") ,
-            "desc" => trans("dashboard.option.desc") ,
+            "title" => trans("lora.option.title") ,
+            "desc" => trans("lora.option.desc") ,
             'breadcrumb' => [
-                trans('dashboard.option.title') => null
+                trans('lora.option.title') => null
             ]
         ] ;
         $roles = Role::select(["id" , "name"])->get() ;

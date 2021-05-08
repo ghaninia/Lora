@@ -2,7 +2,7 @@
 <div class="dashboard-footer-spacer"></div>
 <div class="small-footer margin-top-15">
     <div class="small-footer-copyrights">
-        {!! option("site_copyright" , option("dashboard.copyright")) !!}
+        {!! option("site_copyright" , config("lora.copyright")) !!}
     </div>
     <ul class="footer-social-links">
         <li>

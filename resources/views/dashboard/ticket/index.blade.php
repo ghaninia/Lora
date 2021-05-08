@@ -8,13 +8,13 @@
             <div class="messages-inbox">
                 <div class="messages-headline">
                     <div class="input-with-icon">
-                        <input id="search" type="text" placeholder="{{ trans('dashboard.items.search_trakingcode') }}">
+                        <input id="search" type="text" placeholder="{{ trans('lora.items.search_trakingcode') }}">
                         <i class="icon-material-outline-search"></i>
                     </div>
                 </div>
                 <div class="append" id="append">
                     <i class="icon icon-feather-plus"></i>
-                    <span>{{ trans('dashboard.tickets.append') }}</span>
+                    <span>{{ trans('lora.tickets.append') }}</span>
                 </div>
                 <ul id="side">
                     {!! $side !!}

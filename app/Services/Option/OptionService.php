@@ -16,11 +16,11 @@ class OptionService implements OptionServiceInterface
     public function get(string $key, string $default = null)
     {
         $option = $this->option->where("key", $key)->first();
-        $value  = $option->value ?? $default ?? $option->default;
+        $value  = $option->value ?? $option->default  ?? $default ;
         return !!$option ? $value : false;
     }
 
-    public function set(string $key, string | array  $value): bool
+    public function set(string $key, ?string $value): bool
     {
         return
             $this->option

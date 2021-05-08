@@ -10,6 +10,6 @@
     </select>
     @else
     <div class="notification warning closeable">
-        {{ trans('dashboard.tickets.notfound') }}
+        {{ trans('lora.tickets.notfound') }}
     </div>
 @endif

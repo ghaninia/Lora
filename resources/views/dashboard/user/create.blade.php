@@ -8,7 +8,7 @@
         <div class="row">
             <input type="hidden" name="type" value="profile">
             <div class="col-auto">
-                <div class="avatar-wrapper" data-tippy-placement="bottom" title="{{ trans('dashboard.profile.choose_picture') }}">
+                <div class="avatar-wrapper" data-tippy-placement="bottom" title="{{ trans('lora.profile.choose_picture') }}">
                     <img class="profile-pic" src="" alt="" />
                     <div class="upload-button"></div>
                     <input class="file-upload" type="file" accept="image/*" name="picture"/>
@@ -22,7 +22,7 @@
 
                     <div class="col-lg-6">
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.firstname") }}</h5>
+                            <h5>{{ trans("lora.profile.firstname") }}</h5>
                             <input autocomplete="off" name="firstname" id="firstname" class="with-border {{ $errors->has("firstname") ? "border-danger" : ""}}" value="{{ old('firstname') }}">
                             @if($errors->has("firstname"))
                                 <small class="dashboard-status-button red">{{ $errors->first("firstname") }}</small>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.lastname") }}</h5>
+                            <h5>{{ trans("lora.profile.lastname") }}</h5>
                             <input autocomplete="off" name="lastname" id="lastname" class="with-border {{ $errors->has("lastname") ? "border-danger" : ""}}" value="{{ old('lastname') }}">
                             @if($errors->has("lastname"))
                                 <small class="dashboard-status-button red">{{ $errors->first("lastname") }}</small>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.username") }}</h5>
+                            <h5>{{ trans("lora.profile.username") }}</h5>
                             <input autocomplete="off"  name="username" id="username" class="with-border {{ $errors->has("username") ? "border-danger" : ""}}" value="{{ old('username') }}">
                             @if($errors->has("username"))
                                 <small class="dashboard-status-button red">{{ $errors->first("username") }}</small>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.email") }}</h5>
+                            <h5>{{ trans("lora.profile.email") }}</h5>
                             <input autocomplete="off" dir="ltr" id="email" name="email" class="with-border {{ $errors->has("email") ? "border-danger" : ""}}" value="{{ old('email') }}">
                             @if($errors->has("email"))
                                 <small class="dashboard-status-button red">{{ $errors->first("email") }}</small>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.mobile") }}</h5>
+                            <h5>{{ trans("lora.profile.mobile") }}</h5>
                             <input autocomplete="off" dir="ltr" name="mobile" id="mobile" class="with-border {{ $errors->has("mobile") ? "border-danger" : ""}}" value="{{ old('mobile') }}">
                             @if($errors->has("mobile"))
                                 <small class="dashboard-status-button red">{{ $errors->first("mobile") }}</small>
@@ -62,8 +62,8 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.role") }}</h5>
-                            <select name="role_id" class="selectpicker with-border" data-size="7" title="{{ trans('dashboard.profile.select_one_role') }}" data-live-search="true">
+                            <h5>{{ trans("lora.profile.role") }}</h5>
+                            <select name="role_id" class="selectpicker with-border" data-size="7" title="{{ trans('lora.profile.select_one_role') }}" data-live-search="true">
                                 @foreach($roles as $role)
                                     <option @if($role->id == old('role_id') ) selected @endif value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
@@ -77,10 +77,10 @@
                     <div class="col-lg-6">
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.theme") }}</h5>
-                            <select name="theme" class="selectpicker with-border" data-size="7" title="{{ trans('dashboard.items.select_one_type') }}" data-live-search="true">
+                            <h5>{{ trans("lora.profile.theme") }}</h5>
+                            <select name="theme" class="selectpicker with-border" data-size="7" title="{{ trans('lora.items.select_one_type') }}" data-live-search="true">
                                 @foreach(['red' , 'yellow' , 'green' , 'blue'] as $value)
-                                    <option @if( old('theme') == $value ) selected @endif value="{{ $value }}">{{ trans("dashboard.profile.themes.{$value}") }}</option>
+                                    <option @if( old('theme') == $value ) selected @endif value="{{ $value }}">{{ trans("lora.profile.themes.{$value}") }}</option>
                                 @endforeach
                             </select>
                             @if($errors->has("theme"))
@@ -89,12 +89,12 @@
                         </div>
 
                         <div class="submit-field">
-                            <h5>{{ trans("dashboard.profile.gender") }}</h5>
+                            <h5>{{ trans("lora.profile.gender") }}</h5>
                             <div class="account-type">
                                 @foreach(['male' => 'mdi-male-alt' , 'female' => 'mdi-female' ] as $gender => $icon )
                                     <div>
                                         <input type="radio" name="gender" value="{{ $gender }}" id="{{ $gender }}-radio" class="account-type-radio" @if( old('gender') == $gender ) checked @endif />
-                                        <label for="{{ $gender }}-radio" class="ripple-effect-dark"><i class="icon-line-awesome-{{ $gender }}"></i>{{ trans("dashboard.profile.genders.$gender") }}</label>
+                                        <label for="{{ $gender }}-radio" class="ripple-effect-dark"><i class="icon-line-awesome-{{ $gender }}"></i>{{ trans("lora.profile.genders.$gender") }}</label>
                                     </div>
                                 @endforeach
                             </div>
@@ -109,8 +109,8 @@
                                     <input name="status" type="checkbox" value="1" id="status-checkbox" @if(old('status')) checked @endif>
                                     <label for="status-checkbox"><span class="checkbox-icon"></span></label>
                                 </div>
-                                {{ trans("dashboard.profile.status.text") }}
-                                <i class="help-icon" data-tippy-placement="top" title="{{ trans("dashboard.profile.status.desc") }}"></i>
+                                {{ trans("lora.profile.status.text") }}
+                                <i class="help-icon" data-tippy-placement="top" title="{{ trans("lora.profile.status.desc") }}"></i>
                             </label>
                             @if($errors->has("status"))
                                 <small class="dashboard-status-button red">{{ $errors->first("status") }}</small>
@@ -124,7 +124,7 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="sidebar-widget">
-                            <h3>{{ trans("dashboard.profile.password") }}</h3>
+                            <h3>{{ trans("lora.profile.password") }}</h3>
                             <div class="input-with-icon">
                                 <div id="autocomplete-container">
                                     <input type="password" autocomplete="off" name="password" id="password" class="with-border {{ $errors->has("password") ? "border-danger" : ""}}">
@@ -136,7 +136,7 @@
                             @endif
                         </div>
                         <div class="sidebar-widget">
-                            <h3>{{ trans("dashboard.profile.password_confirmation") }}</h3>
+                            <h3>{{ trans("lora.profile.password_confirmation") }}</h3>
                             <div class="input-with-icon">
                                 <div id="autocomplete-container">
                                     <input type="password" autocomplete="off" name="password_confirmation" id="password_confirmation" class="with-border {{ $errors->has("password_confirmation") ? "border-danger" : ""}}">
@@ -154,7 +154,7 @@
     </div>
 
     <button class="button button-sliding-icon margin-top-20 margin-bottom-20">
-        {{ trans('dashboard.users.create.text') }}
+        {{ trans('lora.users.create.text') }}
         <i class="icon-material-outline-arrow-right-alt"></i>
     </button>
 </form>

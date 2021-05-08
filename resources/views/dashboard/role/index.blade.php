@@ -6,15 +6,15 @@
                 <label class="switch">
                     <input type="checkbox" name="default" {{ \Request::input('default') == 1 ? "checked" : "" }} value="1" onchange="this.form.submit()">
                     <span class="switch-button"></span>
-                    <span class="switch-text">{{ trans('dashboard.roles.just_default') }}</span>
+                    <span class="switch-text">{{ trans('lora.roles.just_default') }}</span>
                 </label>
             </div>
 
             <div class="sort-by">
-                <span>{{ trans('dashboard.items.sortby') }}:</span>
+                <span>{{ trans('lora.items.sortby') }}:</span>
                 <select name="orderBy" class="selectpicker hide-tick" onchange="this.form.submit()">
                     @foreach([ 'id' , 'name' , 'users_count' , 'permissions_count'] as $key )
-                        <option value="{{ $key }}" {{ \Request::input('orderBy') == $key ? "selected" : "" }}>{{ trans("dashboard.items.{$key}") }}</option>
+                        <option value="{{ $key }}" {{ \Request::input('orderBy') == $key ? "selected" : "" }}>{{ trans("lora.items.{$key}") }}</option>
                     @endforeach
                 </select>
             </div>
@@ -38,7 +38,7 @@
                                 <h4 class="job-listing-company">
                                     {{ $role->name }}
                                     @if($role->default)
-                                        <span class="verified-badge" title="{{ trans('dashboard.roles.default.text') }}" data-tippy-placement="top"></span>
+                                        <span class="verified-badge" title="{{ trans('lora.roles.default.text') }}" data-tippy-placement="top"></span>
                                     @endif
                                 </h4>
                                 <h3 class="job-listing-title">{{ $role->description }}</h3>
@@ -50,15 +50,15 @@
                               @if(!$role->default)
                               role="swal"
                               href="#"
-                              data-message="{{ trans('dashboard.questions.role_delete') }}"
+                              data-message="{{ trans('lora.questions.role_delete') }}"
                               data-url="{{ route('dashboard.role.destroy' , $role->id ) }}"
                               data-action="delete"
                               @endif
-                              title="{{ trans('dashboard.roles.delete.text') }}"
+                              title="{{ trans('lora.roles.delete.text') }}"
                               data-tippy-placement="top"
                         >
                         </span>
-                            <a title="{{ trans('dashboard.roles.edit.text') }}"
+                            <a title="{{ trans('lora.roles.edit.text') }}"
                                data-tippy-placement="top"
                                href="{{ route('dashboard.role.edit' , $role->id) }}" class="edit-icon edited"></a>
                             <ul dir="rtl">
@@ -72,7 +72,7 @@
         </div>
     @endif
     </div>
-    <a class="btn--fixed btn--action" href="{{ route('dashboard.role.create') }}" title="{{ trans('dashboard.items.create_new') }}" data-tippy-placement="right">
+    <a class="btn--fixed btn--action" href="{{ route('dashboard.role.create') }}" title="{{ trans('lora.items.create_new') }}" data-tippy-placement="right">
         <span class="icon-feather-plus"></span>
     </a>
 @stop
