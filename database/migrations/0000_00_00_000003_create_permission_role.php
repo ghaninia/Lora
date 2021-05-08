@@ -14,13 +14,13 @@ class CreatePermissionRole extends Migration
     public function up()
     {
         Schema::create('permission_role', function (Blueprint $table) {
-            $table->unsignedInteger("role_id")->length(10); 
-            $table->unsignedInteger("permission_id")->length(10); 
+            $table->unsignedBigInteger("role_id");
+            $table->unsignedBigInteger("permission_id");
 
+            $table->index(["role_id", "permission_id"]);
 
-            $table->index(["role_id" , "permission_id"]) ;
-            $table->foreign("role_id")->references("id")->on("roles")->onDelete("cascade") ;
-            $table->foreign("permission_id")->references("id")->on("permissions")->onDelete("cascade") ;
+            $table->foreign("role_id")->references("id")->on("roles")->onDelete("cascade");
+            $table->foreign("permission_id")->references("id")->on("permissions")->onDelete("cascade");
         });
     }
 

@@ -68,12 +68,13 @@ class DatabaseSeeder extends Seeder
             ],
 
         ]);
+
         $role->users()->create([
             "username" => "test",
-            'firstname' => 'تست',
-            'lastname' => 'تست نیا',
+            'firstname' => 'لورا',
+            'lastname' => 'اسکریپت',
             "mobile"   => "",
-            "email"    => "test@ghaninia.ir",
+            "email"    => "admin@digilora.ir",
             "password" => bcrypt("secret"),
         ]);
 
@@ -93,71 +94,71 @@ class DatabaseSeeder extends Seeder
             ], [
                 "key" => "site_title",
                 "value" => null,
-                "default" => config("dash.title"),
+                "default" => config("lora.title"),
             ], [
                 "key" => "site_description",
                 "value" => null,
-                "default" => config("dash.desc"),
+                "default" => config("lora.desc"),
             ], [
                 "key" => "site_copyright",
                 "value" => null,
-                "default" => config("dash.copyright"),
+                "default" => config("lora.copyright"),
             ], [
                 "key" => "paginate_size",
                 "value" => null,
-                "default" => config("dash.paginate_size"),
+                "default" => config("lora.paginate_size"),
             ], [
                 "key" => "max_credit",
                 "value" => null,
-                "default" => config("dash.max_credit"),
+                "default" => config("lora.max_credit"),
             ], [
                 "key" => "thumb_width",
                 "value" => null,
-                "default" => config("dash.thumb_width"),
+                "default" => config("lora.thumb_width"),
             ], [
                 "key" => "thumb_height",
                 "value" => null,
-                "default" => config("dash.thumb_height"),
+                "default" => config("lora.thumb_height"),
             ], [
                 "key" => "min_credit",
                 "value" => null,
-                "default" => config("dash.min_credit"),
+                "default" => config("lora.min_credit"),
             ], [
                 "key" => "user_can_regsiter",
                 "value" => null,
-                "default" => config("dash.user_can_regsiter"),
+                "default" => config("lora.user_can_regsiter"),
             ], [
                 "key" => "user_default_role",
                 "value" => null,
-                "default" => config("dash.user_default_role"),
+                "default" => config("lora.user_default_role"),
             ], [
                 "key" => "limit_buy_time",
                 "value" => null,
-                "default" => config("dash.limit_buy_time"),
+                "default" => config("lora.limit_buy_time"),
             ], [
                 "key" => "telegram_id",
                 "value" => null,
-                "default" => config("dash.social.telegram_id"),
+                "default" => config("lora.social.telegram_id"),
             ], [
                 "key" => "instagram_id",
                 "value" => null,
-                "default" => config("dash.social.instagram_id"),
+                "default" => config("lora.social.instagram_id"),
             ], [
                 "key" => "gmail_id",
                 "value" => null,
-                "default" => config("dash.social.gmail_id"),
+                "default" => config("lora.social.gmail_id"),
             ], [
                 "key" => "yahoo_id",
                 "value" => null,
-                "default" => config("dash.social.yahoo_id"),
+                "default" => config("lora.social.yahoo_id"),
             ], [
                 "key" => "log_email",
                 "value" => null,
-                "default" => config("dash.log.email"),
+                "default" => config("lora.log.email"),
             ], [
                 "key" => "keywords",
                 "value" => null,
-                "default" => json_encode(config("dash.keywords")),
+                "default" => json_encode(config("lora.keywords")),
             ], [
                 "key" => "site_address",
                 "value" => null,
