@@ -2,44 +2,40 @@
 
 namespace App\Exceptions;
 
-use Throwable;
-
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Session\TokenMismatchException;
-use Intervention\Image\Exception\NotFoundException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
-
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array
+     */
     protected $dontReport = [
         //
     ];
 
-
+    /**
+     * A list of the inputs that are never flashed for validation exceptions.
+     *
+     * @var array
+     */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
 
-    public function report(Throwable $exception)
+    /**
+     * Register the exception handling callbacks for the application.
+     *
+     * @return void
+     */
+    public function register()
     {
-        parent::report($exception);
-    }
-
-
-    public function render($request, Throwable $exception)
-    {
-        if ($exception instanceof TokenMismatchException)
-            return redirect()->route('login')->with(['message' => 'توکن شما مسدود شده است.' ]);
-
-        if ( $exception instanceof NotFoundHttpException )
-            return response()->view("errors.404" , [
-                "p_title" => trans('dashboard.errors.404.text')
-            ] , 200);
-
-        return parent::render($request, $exception);
+        $this->reportable(function (Throwable $e) {
+            //
+        });
     }
 }
