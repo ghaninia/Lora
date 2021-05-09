@@ -5,7 +5,7 @@ return [
     'theme'              => 'blue' ,
     'copyright'          => '' ,
     'format_date'        => "l d M y" ,
-    'paginate_size'      => 10 ,
+    'paginator'      => 10 ,
     'thumb_height'       => 200 ,
     'thumb_width'        => 200 ,
     'default_male'       => 'assets/librarys/imgs/gender/male.svg' ,

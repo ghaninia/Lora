@@ -2,11 +2,11 @@
 
 namespace App\Services\Auth;
 
+use App\Services\Auth\AuthServiceInterface;
+use Illuminate\Support\Facades\Auth;
 use App\Classes\Picture;
 use App\Enum\UserEnum;
 use App\Models\User;
-use App\Services\Auth\AuthServiceInterface;
-use Illuminate\Support\Facades\Auth;
 
 class AuthService implements AuthServiceInterface
 {
@@ -49,6 +49,11 @@ class AuthService implements AuthServiceInterface
         return optional($this->getUser())->username;
     }
 
+    public function fullname(): ?string
+    {
+        return optional($this->getUser())->fullname;
+    }
+
     public function theme(): string
     {
         return optional($this->getUser())->theme ?? config("lora.theme");
@@ -66,7 +71,6 @@ class AuthService implements AuthServiceInterface
     public function avatar(string $size = "thumb"): string
     {
         $user = $this->getUser();
-
         if (is_null($user->picture))
             $picture = $this->isGenderMale() ? maleDefaultPicture() : femaleDefaultPicture();
         else

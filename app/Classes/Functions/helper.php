@@ -3,6 +3,7 @@
 use App\Classes\Picture;
 use App\Services\Auth\AuthService;
 use App\Services\Option\OptionService;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 function authunticate()
@@ -18,6 +19,22 @@ function maleDefaultPicture()
 function femaleDefaultPicture()
 {
     return asset(config('lora.default_female'));
+}
+
+function sidebarClassName(?array $routeName, bool $createClassAttr = true, string $activeCode = "active")
+{
+    $currentRouteName = Route::currentRouteName();
+
+    $activeCode = $activeCode ?? "navigation__active";
+
+    if (
+        is_string($routeName) ?
+        $routeName === $currentRouteName :
+        in_array($currentRouteName, $routeName)
+    ) {
+        return sprintf(" %s ", $createClassAttr ? "class={$activeCode}" : $activeCode);
+    }
+
 }
 
 
@@ -38,34 +55,7 @@ function RepMessage($string, $status = true, $routeName = null)
 
     return redirect()->route($routeName)->with($message);
 }
-/*********************************/
-/*** hightlight with routename ***/
-/*********************************/
-function Hightlight($routeName, $createClass = true, $activeCode = "active")
-{
-    if (is_null($activeCode))
-        $activeCode = "navigation__active";
 
-    if (is_string($routeName)) {
-        if (\Route::currentRouteName() == $routeName) {
-            if ($createClass == true) {
-                return " class={$activeCode} ";
-            } else {
-                return " {$activeCode} ";
-            }
-        }
-    }
-    if (is_array($routeName)) {
-        if (in_array(\Route::currentRouteName(), $routeName)) {
-            if ($createClass == true) {
-                return " class={$activeCode}";
-            } else {
-                return " {$activeCode} ";
-            }
-        }
-    }
-    return null;
-}
 /********************************/
 /*** return CreateTime format ***/
 /********************************/

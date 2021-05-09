@@ -170,6 +170,7 @@ return [
         Hekmatinasser\Verta\VertaServiceProvider::class,
         Shetabit\Payment\Provider\PaymentServiceProvider::class,
         GhaniniaIR\Captcha\CaptchaServiceProvider::class ,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -235,7 +236,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class ,
         'Verta' => Hekmatinasser\Verta\Verta::class,
         'Payment' => Shetabit\Payment\Facade\Payment::class,
-
     ],
 
 ];

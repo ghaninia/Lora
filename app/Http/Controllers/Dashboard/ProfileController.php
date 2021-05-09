@@ -2,61 +2,47 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Requests\Profile\PasswordUpdate;
+use App\Http\Requests\Profile\ProfileUpdate;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ProfileUpdate;
-use App\Repositories\Picture;
-use Illuminate\Http\Request;
+use App\Services\User\UserService;
+use App\Services\Auth\AuthService;
 
 class ProfileController extends Controller
 {
-    public function index(Request $request)
+    protected $auth, $user;
+    public function __construct(AuthService $auth, UserService $user)
     {
-        $p_title = "";
-        $user = $request->user();
-        if ($request->input("index", "edit") == "edit") {
-            $information = [
-                'title' => trans("lora.profile.edit.text"),
-                'desc'  => trans("lora.profile.edit.desc"),
-                'breadcrumb' => [
-                    trans("lora.profile.edit.text") => null
-                ]
-            ];
-        } else {
-            $information = [
-                'title' => trans("lora.profile.changepassword.text"),
-                'desc'  => trans("lora.profile.changepassword.desc"),
-                'breadcrumb' => [
-                    trans("lora.profile.changepassword.text") => null
-                ]
-            ];
-        }
-        return view("dashboard.profile.index", compact("information", 'user'));
+        $this->auth = $auth;
+        $this->user = $user;
     }
 
-    public function store(ProfileUpdate $request)
+    public function index()
     {
+        return view("dashboard.profile.index", [
+            "user" => $this->auth->user()
+        ]);
+    }
 
-        $list = [
-            "firstname" => $request->input('firstname'),
-            "lastname"  => $request->input('lastname'),
-            "username"  => $request->input('username'),
-            "email"     => $request->input('email'),
-            "mobile"    => $request->input('mobile'),
-            "gender"    => $request->input('gender'),
-            "theme"     => $request->input("theme"),
-        ];
-
-        if ($request->hasFile('picture')) {
-            Picture::delete(Auth::user()->picture);
-            $list["picture"]   = Picture::create("picture");
-        }
-
-        Auth::user()->update(
-            $request->input("password") ? [
-                "password"  => bcrypt($request->input("password"))
-            ] : $list
+    public function update(ProfileUpdate $request)
+    {
+        $this->user->update(
+            $this->auth->user(),
+            $request
         );
-        return RepMessage(trans("lora.messages.success.profile.update"));
+        return $this->success([
+            "msg" => trans("lora.message.success.profile.update")
+        ]);
+    }
+
+    public function passwordUpdate(PasswordUpdate $request)
+    {
+        $this->user->updatePassword(
+            $this->auth->user(),
+            $request->all()
+        );
+        return $this->success([
+            "msg" => trans("lora.message.success.profile.update"),
+        ]);
     }
 }

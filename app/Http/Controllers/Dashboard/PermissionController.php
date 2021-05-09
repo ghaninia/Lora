@@ -3,76 +3,41 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PermissionStore;
-use App\Http\Requests\PermissionUpdate;
+use App\Http\Requests\Permission\PermissionIndex;
+use App\Http\Requests\Permission\PermissionStore;
+use App\Http\Requests\Permission\PermissionUpdate;
+use App\Http\Resources\Permission\PermissionResource;
 use Illuminate\Http\Request;
 use App\Models\Permission;
+use App\Repositories\Permission\PermissionRepository;
+use App\Services\Permission\PermissionService;
 
 class PermissionController extends Controller
 {
-
-    public function index(Request $request)
+    protected $permissions;
+    public function __construct(PermissionService $permissions)
     {
-        $this->validate($request, [
-            'orderBy' => 'nullable|in:id,name,roles_count',
-            'default' => 'nullable|boolean'
-        ]);
-        $permissions = Permission::with(["roles"])->withCount(["roles"])
-            ->orderBy($request->input('orderBy', 'id'), 'desc')
-            ->where(function ($q) use ($request) {
-                if ($request->has('default'))
-                    $q->where(['default' => true]);
-            })
-            ->get();
-
-        $information = [
-            'title' => trans('lora.permissions.all.text'),
-            'desc'  => trans('lora.permissions.all.desc'),
-            'breadcrumb' => [
-                trans('lora.permissions.all.text') => null
-            ]
-        ];
-
-
-        return view('dashboard.permission.index', compact('permissions', 'information'));
+        $this->permissions = $permissions;
     }
 
-    public function create()
+    public function index(PermissionIndex $request)
     {
-        $information = [
-            'title' => trans('lora.permissions.create.text'),
-            'desc'  => trans('lora.permissions.create.desc'),
-            'breadcrumb' => [
-                trans('lora.permissions.all.text') => route('dashboard.permission.index'),
-                trans('lora.permissions.create.text') => null
-            ]
-        ];
-        return view("dashboard.permission.create", compact('information'));
+        $permissions = $this->permissions->all($request);
+        return PermissionResource::collection($permissions);
     }
 
     public function store(PermissionStore $request)
     {
-        Permission::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'default' => $request->input('default', false)
+        $permission = $this->permissions->create($request->all());
+        return $this->success([
+            "data" => new PermissionResource($permission),
+            "msg"  => trans("lora.message.success.permission.create")
         ]);
-        return RepMessage(trans('lora.messages.success.permissions.store'), true, "dashboard.permission.index");
     }
 
-    public function edit(Permission $permission)
+    public function show(Permission $permission)
     {
-
-        $information = [
-            'title' => trans('lora.permissions.edit.text'),
-            'desc'  => trans('lora.permissions.edit.desc'),
-            'breadcrumb' => [
-                trans('lora.permissions.all.text') => route('dashboard.permission.index'),
-                trans('lora.permissions.edit.text') => null
-            ]
-        ];
-
-        return view('dashboard.permission.edit', compact('permission', 'information'));
+        return new PermissionResource( $permission );
     }
 
     public function update(PermissionUpdate $request, Permission $permission)
