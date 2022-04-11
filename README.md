@@ -1,47 +1,42 @@
-
-<div align="right" dir="rtl">
-<h1>لورا چیست ؟</h1>
+<h1> What is Lora? </h1>
 <p>
-لورا یک مدیریت کوچک و فشرده شده است که با لاراول نوشته شده است از فواید استفاده از لورا میتونه چی باشه ؟ 
-
+Lora is a small, concise administration written with Laravel What are the benefits of using Lora?
 </p>
 
- 1. <b>😎 مدیریت کاربران </b>: کاربر بسازید و مدیریتش کنید 
- 2. <b>👑مدیریت نقش ها </b>: نقش های جدید بسازید و ویژگی های دلخواهتون رو بهش اضافه کنید
- 3. <b>💸 کوپن تخفیف</b>: شما میتوانید کوپن تخفیف به مناسبت های مختلف بسازید و انتخاب کنید چند بار استفاده بشه و یا چ زمانی منقضی بشه
- 4. <b>💰 مدیریت تراکنش ها </b>: پول های که تو سیستمتون رد و بدل شده رو مدیریت کنید چ کسی چقدر پرداخت و کی پرداخت کرده 
- 5. <b>💳 شارژ کیف پول </b>: کاربران یه کیف پولی تو سیستم دارند میتونن شارژش کنن و ازش استفاده کنن
- 6. <b>🥘 خصوصیت حرفه ای </b>: شما تو لورا میتونید آشپز خودتون باشید خصوصیت درست کنید و تو نقش ها ازش استفاده کنید
- 7. <b>🎫 تیکتینگ </b>: به نقش ها و کاربران مختلف میشه به آسونی تیکت زد  و یا به تیکت های گروهی که میاد جواب بدید
- 8. <b>😼 پروفایل شخصی </b>: میتونید پروفایل شخصی خودتون رو ویرایش کنید یا عکس پروفایل و گذرواژه خودتون رو تغییر بدید
- 9. <b>🧧 رنگ بندی مختلف </b> :  لورا از نظر ظاهری هم با رنگ های متنوع عرضه شده و بسیار کاربرپسند هستش 
- 10. <b>⚙️تنظیمات </b> : برای آسانی کار با سیستم لورا تنظیمات نیز اضافه گردید. 
+ 1. <b> 😎 User Management </b>: Create and manage a user
+ 2. <b> 👑 Role Management </b>: Create new roles and add your favorite features
+ 3. <b> 💸 Discount Coupons </b>: You can make discount coupons for different occasions and choose how many times to use them or when they expire
+ 4. <b> 💰 Transaction Management </b>: Manage the money exchanged in your system, who paid how much and who paid
+ 5. <b> 💳 Wallet Charging </b>: Users have a wallet in the system can charge it and use it
+ 6. <b> 🥘 Professional Attribute </b>: You can be your own chef in Lora. Create a attribute and use it in roles.
+ 7. <b> 🎫 Ticketing </b>: You can easily tick different roles and users or respond to group tickets
+ 8. <b> 😼 Personal Profile </b>: You can edit your personal profile or change your profile picture and password
+ 9. <b> 🧧 Different colors </b>: Lora also comes in a variety of colors and is very user-friendly.
+ 10. <b> ⚙️ Settings </b>: Settings have also been added for ease of use with the Laura system.
 
-<h5>آیا توسعه لورا راحته ؟؟</h5>
+<h5> Is Lora development easy ?? </h5>
 <p>
-شما میتوانید به راحتی لورا رو توسعه بدهید خوانایی و استفاده به موقع از اجزایی لاراول شما را مجاب به استفاده لورا در پروژه های خود میکند 
-شما در این سیستم تمام وسایل لازم رو برای ساخت پروژه جدیدتون دارید و نیاز به دوباره نویسی سیستم نیست 
-لورا  از پکیج های خوبی مثل  استفاده کرده 
-
- - <a href="https://github.com/larabook/gateway">لارابوک</a>
- - <a href="https://github.com/hekmatinasser/verta">ورتا</a>
- - <a href="http://image.intervention.io/">Image intervation</a>
-</p> 
-
-<h1>چطور استفاده کنیم ؟؟</h1>
-<p>
-
- - ابتدا باید مخزن را در کامپیوتر خودتون دانلود کنید پس در کامند لاین : 
- - `git clone https://github.com/ghaninia/Lora.git`
- - سپس در مسیر پوشه نصبی باید `composer install` را تایپ کنید
- - سپس به فایل .env رفته و کانفیگ سرور و دیتابیس خودتون رو انجام بدهید 
- - بعد در کامند لاین `php artisan fresh` جداول دیتابیس و داده های فیک برای شما ساخته میشود
- -  بعد سرور خود را اجرا کنید `php artisan serve` 
- - به مسیر `127.0.0.1:8000` بروید  
-<br />
-<b>نام کاربری</b>: test  
-<br />
-<b>پسورد </b>: secret
+You can easily develop Lora Readability and timely use of Laravel components will persuade you to use Laura in your projects
+In this system, you have all the necessary tools to build your new project and there is no need to rewrite the system
+Lora has used good packages like
+ - <a href="https://github.com/larabook/gateway"> larabook </a>
+ - <a href="https://github.com/hekmatinasser/verta"> verta </a>
+ - <a href="http://image.intervention.io/"> Image intervation </a>
 </p>
 
-برای مشاهده جزئیات بیشتر به <a href="http://ghaninia.ir/posts/17">صفحه رسمی لورا</a> وارد شوید .
+<h1> How to use ?? </h1>
+<p>
+ - First you have to download the repository on your computer, then in the command line:
+ - `git clone https://github.com/ghaninia/lora.git`
+ - Then in the path of the installation folder you have to type `composer install`
+ - Then go to the .env file and configure your server and database
+ - Next in the command line `php artisan fresh` database tables and fake data will be created for you
+ - Next run your server `php artisan serve`
+ - Go to `127.0.0.1:8000`
+<br />
+<b> Username </b>: test
+<br />
+<b> Password </b>: secret
+</p>
+
+For more details, visit <a href="http://ghaninia.ir/posts/17"> Lora official page </a>.
